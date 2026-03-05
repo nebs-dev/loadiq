@@ -16,3 +16,5 @@ The platform retrieves selected health metrics including:
 Data is used exclusively to generate personalized fitness insights for the user.
 
 Users may revoke access at any time by disconnecting their Garmin account.
+
+This application does not resell or redistribute Garmin user data.
