@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Sign In - Open PRO",
+  title: "Sign In - LoadIQ",
   description: "Page description",
 };
 
@@ -21,7 +21,7 @@ export default function SignIn() {
             <div className="space-y-5">
               <div>
                 <label
-                  className="mb-1 block text-sm font-medium text-indigo-200/65"
+                  className="mb-1 block text-sm font-medium text-gray-300"
                   htmlFor="email"
                 >
                   Email
@@ -36,7 +36,7 @@ export default function SignIn() {
               <div>
                 <div className="mb-1 flex items-center justify-between gap-3">
                   <label
-                    className="block text-sm font-medium text-indigo-200/65"
+                    className="block text-sm font-medium text-gray-300"
                     htmlFor="password"
                   >
                     Password
@@ -63,13 +63,13 @@ export default function SignIn() {
               <div className="flex items-center gap-3 text-center text-sm italic text-gray-600 before:h-px before:flex-1 before:bg-linear-to-r before:from-transparent before:via-gray-400/25 after:h-px after:flex-1 after:bg-linear-to-r after:from-transparent after:via-gray-400/25">
                 or
               </div>
-              <button className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%]">
+              <button className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%]">
                 Sign In with Google
               </button>
             </div>
           </form>
           {/* Bottom link */}
-          <div className="mt-6 text-center text-sm text-indigo-200/65">
+          <div className="mt-6 text-center text-sm text-gray-300">
             Don't you have an account?{" "}
             <Link className="font-medium text-indigo-500" href="/signup">
               Sign Up

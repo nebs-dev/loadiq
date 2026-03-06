@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Reset Password - Open PRO",
+  title: "Reset Password - LoadIQ",
   description: "Page description",
 };
 
@@ -20,7 +20,7 @@ export default function ResetPassword() {
           <form className="mx-auto max-w-[400px]">
             <div>
               <label
-                className="mb-1 block text-sm font-medium text-indigo-200/65"
+                className="mb-1 block text-sm font-medium text-gray-300"
                 htmlFor="email"
               >
                 Email
