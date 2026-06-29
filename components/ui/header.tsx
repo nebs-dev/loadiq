@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { getSignInUrl, withAuth } from "@workos-inc/authkit-nextjs";
+import { withAuth } from "@workos-inc/authkit-nextjs";
 import { Button } from "@/components/ui/button";
 import Logo from "./logo";
 
 export default async function Header() {
-  const [{ user }, signInUrl] = await Promise.all([
-    withAuth(),
-    getSignInUrl({ returnTo: "/app" }),
-  ]);
+  const { user } = await withAuth();
 
   return (
     <header className="z-30 mt-2 w-full md:mt-5">
@@ -53,7 +50,7 @@ export default async function Header() {
               <>
                 <li className="hidden sm:block">
                   <Button asChild size="sm" variant="ghost" className="text-white hover:bg-white/8 hover:text-white">
-                    <a href={signInUrl}>Sign in</a>
+                    <Link href="/signin">Sign in</Link>
                   </Button>
                 </li>
                 <li>
