@@ -1,11 +1,8 @@
 import Link from "next/link";
-import { withAuth } from "@workos-inc/authkit-nextjs";
 import { Button } from "@/components/ui/button";
 import Logo from "./logo";
 
-export default async function Header() {
-  const { user } = await withAuth();
-
+export default function Header() {
   return (
     <header className="z-30 mt-2 w-full md:mt-5">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -40,29 +37,19 @@ export default async function Header() {
           </nav>
 
           <ul className="flex flex-1 items-center justify-end gap-3">
-            {user ? (
-              <li>
-                <Button asChild size="sm">
-                  <Link href="/app">Open app</Link>
-                </Button>
-              </li>
-            ) : (
-              <>
-                <li className="hidden sm:block">
-                  <Button asChild size="sm" variant="ghost" className="text-white hover:bg-white/8 hover:text-white">
-                    <Link href="/signin">Sign in</Link>
-                  </Button>
-                </li>
-                <li>
-                  <a
-                    href="mailto:nebojsa.stojanovic@loadiq.fit?subject=LoadIQ%20Early%20Access"
-                    className="btn-sm rounded-xl bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]"
-                  >
-                    Request Early Access
-                  </a>
-                </li>
-              </>
-            )}
+            <li className="hidden sm:block">
+              <Button asChild size="sm" variant="ghost" className="text-white hover:bg-white/8 hover:text-white">
+                <Link href="/signin">Sign in</Link>
+              </Button>
+            </li>
+            <li>
+              <a
+                href="mailto:nebojsa.stojanovic@loadiq.fit?subject=LoadIQ%20Early%20Access"
+                className="btn-sm rounded-xl bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]"
+              >
+                Request Early Access
+              </a>
+            </li>
           </ul>
         </div>
       </div>
