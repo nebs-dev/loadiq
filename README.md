@@ -18,3 +18,7 @@ Data is used exclusively to generate personalized fitness insights for the user.
 Users may revoke access at any time by disconnecting their Garmin account.
 
 This application does not resell or redistribute Garmin user data.
+
+## Engineering quality
+
+See [QUALITY.md](QUALITY.md) for isolated database tests, CI, Playwright, lint debt and privacy-safe monitoring.

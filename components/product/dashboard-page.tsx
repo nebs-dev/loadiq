@@ -1,9 +1,26 @@
 import type { ReactNode } from "react";
-import { ArrowRight, CalendarRange, Download, Footprints, HeartPulse, Scale, ShieldAlert, TimerReset, Zap } from "lucide-react";
-import { signOut, withAuth } from "@workos-inc/authkit-nextjs";
+import {
+  ArrowRight,
+  CalendarRange,
+  Download,
+  Footprints,
+  HeartPulse,
+  Scale,
+  ShieldAlert,
+  TimerReset,
+  Zap,
+} from "lucide-react";
+import { signOut } from "@workos-inc/authkit-nextjs";
+import { currentUser } from "@/lib/current-user";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
   getDashboardSummary,
@@ -18,18 +35,21 @@ import {
 import { TrendPanel } from "./trend-panel";
 
 export async function DashboardPage() {
-  const [{ user }, summary, timeline, recentActivity, recentImports] = await Promise.all([
-    withAuth({ ensureSignedIn: true }),
-    getDashboardSummary(),
-    getDashboardTimeline("28d"),
-    getRecentActivity("14d"),
-    getRecentImports(5),
-  ]);
+  const [{ user }, summary, timeline, recentActivity, recentImports] =
+    await Promise.all([
+      currentUser(),
+      getDashboardSummary(),
+      getDashboardTimeline("28d"),
+      getRecentActivity("14d"),
+      getRecentImports(5),
+    ]);
 
   const greetingName = user.firstName ?? user.email.split("@")[0];
-  const activeStates = summary.daily.states.filter((state) => state.status !== "RESOLVED");
-  const recommendationActions = summary.daily.recommendations.flatMap((recommendation) =>
-    recommendation.payloadJson?.actions ?? [],
+  const activeStates = summary.daily.states.filter(
+    (state) => state.status !== "RESOLVED",
+  );
+  const recommendationActions = summary.daily.recommendations.flatMap(
+    (recommendation) => recommendation.payloadJson?.actions ?? [],
   );
 
   return (
@@ -77,17 +97,23 @@ export async function DashboardPage() {
               <StatPill
                 icon={<CalendarRange className="h-4 w-4" />}
                 label="Wearable days"
-                value={String(summary.weekly.summary.metrics.coverage.wearableDays)}
+                value={String(
+                  summary.weekly.summary.metrics.coverage.wearableDays,
+                )}
               />
               <StatPill
                 icon={<Footprints className="h-4 w-4" />}
                 label="Average steps"
-                value={formatNullable(summary.weekly.summary.metrics.activity.averageSteps)}
+                value={formatNullable(
+                  summary.weekly.summary.metrics.activity.averageSteps,
+                )}
               />
               <StatPill
                 icon={<Zap className="h-4 w-4" />}
                 label="Sessions"
-                value={String(summary.weekly.summary.metrics.activitySessions.sessionCount)}
+                value={String(
+                  summary.weekly.summary.metrics.activitySessions.sessionCount,
+                )}
               />
             </CardContent>
           </Card>
@@ -127,12 +153,14 @@ export async function DashboardPage() {
                   Next actions
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-[#334155]">
-                  {summary.daily.summary.nextActions.slice(0, 3).map((action) => (
-                    <li key={action} className="flex items-start gap-2">
-                      <ArrowRight className="mt-0.5 h-4 w-4 text-[#0F8F63]" />
-                      <span>{action}</span>
-                    </li>
-                  ))}
+                  {summary.daily.summary.nextActions
+                    .slice(0, 3)
+                    .map((action) => (
+                      <li key={action} className="flex items-start gap-2">
+                        <ArrowRight className="mt-0.5 h-4 w-4 text-[#0F8F63]" />
+                        <span>{action}</span>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </CardContent>
@@ -143,7 +171,9 @@ export async function DashboardPage() {
           <InsightCard
             title="Key Highlights"
             icon={<Zap className="h-4 w-4" />}
-            items={summary.weekly.highlights.slice(0, 4).map((highlight) => highlight.message)}
+            items={summary.weekly.highlights
+              .slice(0, 4)
+              .map((highlight) => highlight.message)}
             emptyMessage="Highlights will appear after enough recovery and activity data comes in."
           />
           <InsightCard
@@ -178,7 +208,8 @@ export async function DashboardPage() {
             <CardHeader>
               <CardTitle>Trend Overview</CardTitle>
               <CardDescription>
-                Last {timeline.range.days} days of chart-ready normalized signals.
+                Last {timeline.range.days} days of chart-ready normalized
+                signals.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
@@ -196,7 +227,11 @@ export async function DashboardPage() {
               />
               <TrendPanel
                 label="Sleep"
-                value={formatMetricFromTimeline(timeline, "sleepDurationMin", "min")}
+                value={formatMetricFromTimeline(
+                  timeline,
+                  "sleepDurationMin",
+                  "min",
+                )}
                 subtitle="Wearable recovery signal"
                 values={timeline.points.map((point) => point.sleepDurationMin)}
               />
@@ -240,7 +275,9 @@ function InsightCard({
     <Card>
       <CardHeader className="pb-4">
         <div className="flex items-center gap-2 text-sm font-semibold text-[#0F172A]">
-          <span className="rounded-full bg-[#ECFEF5] p-2 text-[#0F8F63]">{icon}</span>
+          <span className="rounded-full bg-[#ECFEF5] p-2 text-[#0F8F63]">
+            {icon}
+          </span>
           {title}
         </div>
       </CardHeader>
@@ -274,7 +311,8 @@ function RecentImports({
       <CardHeader>
         <CardTitle>Recent Imports</CardTitle>
         <CardDescription>
-          Latest upload status plus {summary.imports.recentCount} import(s) in the last 7 days.
+          Latest upload status plus {summary.imports.recentCount} import(s) in
+          the last 7 days.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -292,12 +330,16 @@ function RecentImports({
                     {formatDateTime(entry.createdAt)}
                   </p>
                 </div>
-                <Badge variant={mapImportVariant(entry.status)}>{entry.status}</Badge>
+                <Badge variant={mapImportVariant(entry.status)}>
+                  {entry.status}
+                </Badge>
               </div>
               {entry.error ? (
                 <p className="mt-2 text-sm text-[#991B1B]">{entry.error}</p>
               ) : null}
-              {index < imports.length - 1 ? <Separator className="mt-4" /> : null}
+              {index < imports.length - 1 ? (
+                <Separator className="mt-4" />
+              ) : null}
             </div>
           ))
         )}
@@ -319,7 +361,9 @@ function RecentActivity({ sessions }: { sessions: ActivitySessionRecord[] }) {
       </CardHeader>
       <CardContent className="space-y-4">
         {items.length === 0 ? (
-          <p className="text-sm text-[#64748B]">No activity sessions available yet.</p>
+          <p className="text-sm text-[#64748B]">
+            No activity sessions available yet.
+          </p>
         ) : (
           items.map((session, index) => (
             <div key={session.id}>
@@ -336,9 +380,13 @@ function RecentActivity({ sessions }: { sessions: ActivitySessionRecord[] }) {
                   </p>
                 </div>
                 <div className="text-right text-sm text-[#334155]">
-                  <p>{session.durationMin ? `${session.durationMin} min` : "n/a"}</p>
+                  <p>
+                    {session.durationMin ? `${session.durationMin} min` : "n/a"}
+                  </p>
                   <p className="text-xs text-[#64748B]">
-                    {session.caloriesBurned ? `${session.caloriesBurned} kcal` : "No calories"}
+                    {session.caloriesBurned
+                      ? `${session.caloriesBurned} kcal`
+                      : "No calories"}
                   </p>
                 </div>
               </div>
@@ -366,7 +414,9 @@ function StatPill({
         {icon}
         {label}
       </div>
-      <p className="font-nacelle text-2xl font-semibold tracking-[-0.03em]">{value}</p>
+      <p className="font-nacelle text-2xl font-semibold tracking-[-0.03em]">
+        {value}
+      </p>
     </div>
   );
 }
@@ -386,7 +436,9 @@ function KeyDatum({
         {icon}
         {label}
       </p>
-      <p className="mt-2 font-nacelle text-xl font-semibold text-[#0F172A]">{value}</p>
+      <p className="mt-2 font-nacelle text-xl font-semibold text-[#0F172A]">
+        {value}
+      </p>
     </div>
   );
 }
@@ -396,7 +448,9 @@ function formatMetricFromTimeline(
   key: "weightKg" | "steps" | "sleepDurationMin" | "restingHr" | "stressScore",
   suffix?: string,
 ) {
-  const latest = [...timeline.points].reverse().find((point) => point[key] !== null)?.[key];
+  const latest = [...timeline.points]
+    .reverse()
+    .find((point) => point[key] !== null)?.[key];
 
   if (latest === undefined || latest === null) {
     return "No data";
@@ -405,7 +459,9 @@ function formatMetricFromTimeline(
   return suffix ? `${latest} ${suffix}` : String(latest);
 }
 
-function mapSummaryStatus(status: DashboardSummaryResponse["daily"]["summary"]["status"]) {
+function mapSummaryStatus(
+  status: DashboardSummaryResponse["daily"]["summary"]["status"],
+) {
   if (status === "attention") {
     return "warning" as const;
   }

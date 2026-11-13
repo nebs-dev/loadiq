@@ -1,0 +1,24 @@
+name: Frontend quality
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: corepack pnpm@10.15.1 --ignore-workspace install --frozen-lockfile
+      - run: corepack pnpm --ignore-workspace quality
+      - run: corepack pnpm --ignore-workspace build
+      - run: corepack pnpm --ignore-workspace typecheck
+      - run: corepack pnpm --ignore-workspace exec playwright install --with-deps chromium
+      - run: corepack pnpm --ignore-workspace test:e2e

@@ -1,0 +1,15 @@
+{
+  "app/(default)/contact/page.tsx": "e723e9a1e4d88cbf41b21369b7753a8ffcf1495a994d2a5fc5d722d11592448c",
+  "app/(default)/disclaimer/page.tsx": "6b5def71b5cebd2a2d2f2b17483cba9b496ec9e46313b5d5ddd42ff499aad2ef",
+  "app/(default)/privacy/page.tsx": "2533bf409f5faf43215ec1910dbef61eef162eb8812f034700c0be2379fb450b",
+  "app/(default)/terms/page.tsx": "80b14b6e136839234c0b204d1df974fdc83975efe56f93ab33180328a0dbe96a",
+  "components/features.tsx": "885658ebb2b323a135a0d87deaded0dd4b03914311f49b8eb814372bffc33ff3",
+  "components/hero-home.tsx": "6f10ff5e9953fd4b430dd1ffa7b350f3c803be1552c017b5c4e39addc0df0ab6",
+  "components/legal/legal-page.tsx": "b7696c0b85dc215f8e91394994cbc516cb058ac289fe19906612ea2022ffc356",
+  "components/ui/badge.tsx": "7e1318d20f902eba92bccdbef3c20143fcfc85a444816deccd2a4e8ee86ad268",
+  "components/ui/button.tsx": "d6a638903cce1dde29ad180eef2ab36665f201c411d5b75022942d96cce51a4e",
+  "components/ui/card.tsx": "c375ec8547fc642b51a03b5effa4f7264e399ffdb94c84977aad478092142035",
+  "components/ui/header.tsx": "ee35b9035a2521a150f26b2e5b598b84be55e8445b8bd9e844248a5f1bf3847c",
+  "components/workflows.tsx": "7e204c9bcd1eaacea01e0567cbcc05e6d0e2b11086d4976949bfb81c5decbb5a",
+  "postcss.config.js": "323d21314f4ee8f2a44c196b2a0cfc87b98144ac5eae429c1749dd5a4da9da1f"
+}
