@@ -6,11 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "node scripts/check-quality.mjs",
+    "quality": "node scripts/check-quality.mjs && node scripts/check-format.mjs",
+    "lint:all": "eslint app components lib middleware.ts",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test:e2e": "playwright test",
+    "format:check": "node scripts/check-format.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@radix-ui/react-slot": "^1.2.4",
+    "@sentry/nextjs": "^11.12.0",
     "@types/node": "^22.13.0",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
@@ -26,10 +32,15 @@
     "typescript": "^5.7.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.0.3",
     "@types/aos": "^3.0.7",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "15.2.8",
     "postcss": "^8.5.1",
+    "prettier": "^3.10.1",
     "tailwindcss": "^4.0.3"
   },
   "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67"

@@ -1,0 +1,10 @@
+language: en-US
+reviews:
+  path_filters:
+    - "!samples/**"
+    - "!uploads/**"
+    - "!.env*"
+    - "!playwright-report/**"
+    - "!test-results/**"
+    - "!**/*.zip"
+    - "!**/*.fit"

@@ -1,0 +1,15 @@
+{
+  "app/(auth)/reset-password/page.tsx:@typescript-eslint/no-unused-vars:b728893e4acb0f9c:69133de71f6611d2:2": 1,
+  "app/(default)/terms/page.tsx:react/no-unescaped-entities:1c3839c03cb2b991:c5a5e2a1458b58b1:2": 2,
+  "app/(default)/terms/page.tsx:react/no-unescaped-entities:1c3839c03cb2b991:ffd76ff58589503a:2": 2,
+  "app/(default)/terms/page.tsx:react/no-unescaped-entities:1c3839c03cb2b991:b00b6f721170ad06:2": 2,
+  "app/api/hello/route.ts:@typescript-eslint/no-unused-vars:4de5a2da09f9a3a6:d94ae0b200cbd3e2:2": 1,
+  "components/features.tsx:@typescript-eslint/no-unused-vars:46caadc339cb7170:1ea0b1617e95c54d:2": 1,
+  "components/spotlight.tsx:@typescript-eslint/no-unused-expressions:0c76df5cc23b85bd:8f8b048b5ead5eac:2": 1,
+  "components/spotlight.tsx:react-hooks/exhaustive-deps:24b591d6474d100c:5e61b3167f235ea7:1": 1,
+  "components/testimonials.tsx:react/no-unescaped-entities:4a5fcfbb4b1a13ca:3f24d4ed5fa4dd97:2": 1,
+  "components/ui/footer.tsx:@next/next/no-html-link-for-pages:4944a2c195abdcd8:8ded8914e8d7bde0:2": 1,
+  "components/ui/footer.tsx:@next/next/no-html-link-for-pages:4944a2c195abdcd8:a183b133e812c4cb:2": 1,
+  "components/ui/footer.tsx:@next/next/no-html-link-for-pages:4944a2c195abdcd8:eecb865f44dfc990:2": 2,
+  "components/ui/footer.tsx:@next/next/no-html-link-for-pages:4944a2c195abdcd8:48610c20e48ab358:2": 1
+}

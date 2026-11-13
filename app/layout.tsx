@@ -1,4 +1,5 @@
 import "./css/style.css";
+import { Monitoring } from "@/components/monitoring";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-[#171717] font-inter text-base text-[#F9FAFB] antialiased`}
       >
+        <Monitoring />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>

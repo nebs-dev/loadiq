@@ -1,6 +1,8 @@
 import "server-only";
+import { headers as requestHeaders } from "next/headers";
+import { e2eEnabled } from "./e2e-mode";
 
-import { withAuth } from "@workos-inc/authkit-nextjs";
+import { currentUser } from "@/lib/current-user";
 
 const INTERNAL_API_KEY_HEADER = "x-loadiq-internal-api-key";
 const EXTERNAL_AUTH_ID_HEADER = "x-loadiq-external-auth-id";
@@ -150,9 +152,15 @@ function requireEnv(name: string) {
 }
 
 async function getApiHeaders() {
-  const { user } = await withAuth({ ensureSignedIn: true });
+  const { user } = await currentUser();
 
   return {
+    ...(e2eEnabled()
+      ? {
+          "x-loadiq-e2e-scenario":
+            (await requestHeaders()).get("x-loadiq-e2e-scenario") ?? "normal",
+        }
+      : {}),
     [INTERNAL_API_KEY_HEADER]: requireEnv("LOADIQ_INTERNAL_API_KEY"),
     [EXTERNAL_AUTH_ID_HEADER]: user.id,
     [USER_EMAIL_HEADER]: user.email,
@@ -171,7 +179,9 @@ async function apiFetch<T>(path: string) {
   });
 
   if (!response.ok) {
-    throw new Error(`LoadIQ API request failed: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `LoadIQ API request failed: ${response.status} ${response.statusText}`,
+    );
   }
 
   return (await response.json()) as T;

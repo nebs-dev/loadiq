@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { withAuth } from "@workos-inc/authkit-nextjs";
+import { currentUser } from "@/lib/current-user";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +8,7 @@ export default async function ProductLayout({
 }: {
   children: ReactNode;
 }) {
-  await withAuth({ ensureSignedIn: true });
+  await currentUser();
 
   return children;
 }
