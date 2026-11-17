@@ -1,4 +1,11 @@
 import { createServer } from "node:http";
+import { readFileSync } from "node:fs";
+const acceptance = JSON.parse(
+  readFileSync(
+    new URL("./fixtures/coach-conversation.json", import.meta.url),
+    "utf8",
+  ),
+);
 const date = "2020-01-06";
 function summary(limited, bob) {
   return {
@@ -135,14 +142,23 @@ const server = createServer(async (req, res) => {
   const bob = req.headers["x-loadiq-external-auth-id"] === "synthetic-bob";
   const url = new URL(req.url, "http://127.0.0.1");
   if (url.pathname.startsWith("/api/coach/")) {
+    if (
+      req.headers["x-loadiq-e2e-scenario"] === "coach_chat_error" &&
+      url.pathname.endsWith("/chat")
+    ) {
+      res.writeHead(503);
+      return res.end();
+    }
     if (req.headers["x-loadiq-e2e-scenario"] === "coach_error") {
       res.writeHead(503);
       return res.end();
     }
     const identity = req.headers["x-loadiq-external-auth-id"];
-    if (!coachUsers.has(identity))
-      coachUsers.set(identity, { consented: false, notes: [] });
-    const state = coachUsers.get(identity);
+    const stateKey =
+      identity + ":" + (req.headers["x-loadiq-e2e-scenario"] ?? "normal");
+    if (!coachUsers.has(stateKey))
+      coachUsers.set(stateKey, { consented: false, notes: [] });
+    const state = coachUsers.get(stateKey);
     const paused = req.headers["x-loadiq-e2e-scenario"] === "coach_paused";
     const status = () => ({
       configured: !paused,
@@ -202,6 +218,66 @@ const server = createServer(async (req, res) => {
       };
       state.notes.push(result);
     } else result = state.notes;
+    if (
+      req.headers["x-loadiq-e2e-scenario"] === "coach_validation" &&
+      url.pathname.endsWith("/chat")
+    ) {
+      result = {
+        ...coachReply(limited, bob),
+        mode: "provider_unavailable",
+        completion: "evidence_only",
+        latestImportedDate: "2020-01-07",
+        failure: {
+          category: "narrative_validation",
+          stage: "synthesis",
+          retryable: true,
+        },
+        answer:
+          "AI odgovor nije dovršen. Slijedi odgovor iz provjerenih podataka, bez AI objašnjenja.\n\nPodaci pokazuju opisnu promjenu HRV-a; njegov uzrok nije utvrđen. Za zaključak su važni i san, stres te vaš osjećaj oporavka.",
+      };
+    }
+    if (
+      req.headers["x-loadiq-e2e-scenario"] === "coach_five_turn" &&
+      (url.pathname.endsWith("/brief") || url.pathname.endsWith("/chat"))
+    ) {
+      const index = url.pathname.endsWith("/brief")
+        ? 0
+        : acceptance.questions.findIndex((q) => q.question === input.message);
+      if (
+        index < 0 ||
+        (url.pathname.endsWith("/chat") &&
+          JSON.stringify(input.previousQuestions ?? []) !==
+            JSON.stringify(
+              acceptance.questions.slice(0, index).map((q) => q.question),
+            ))
+      ) {
+        res.writeHead(400);
+        return res.end();
+      }
+      const turn = acceptance.questions[index];
+      if (
+        url.pathname.endsWith("/chat") &&
+        index > 0 &&
+        JSON.stringify(input.conversationContext) !==
+          JSON.stringify(
+            acceptance.questions[index - 1].reply.conversationContext,
+          )
+      ) {
+        res.writeHead(400);
+        return res.end();
+      }
+      result = turn.reply;
+    }
+    const contractScenario = req.headers["x-loadiq-e2e-scenario"];
+    if (
+      url.pathname.endsWith("/chat") &&
+      typeof contractScenario === "string" &&
+      contractScenario.startsWith("contract_")
+    ) {
+      result =
+        acceptance.contracts[contractScenario.slice("contract_".length)] ??
+        result;
+    }
     res.setHeader("Content-Type", "application/json");
     return res.end(JSON.stringify(result));
   }

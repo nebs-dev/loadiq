@@ -56,3 +56,19 @@ and loopback host. Production builds/servers reject the flag and production auth
 Local Next4318 and fixture backend4319 use only fabricated users/data. Actual WorkOS login/callback is not verified.
 Build and E2E run sequentially because both use .next. Historical lint is enforced by a separate mandatory gate,
 not by Next build; no new lint fingerprints are accepted. No production login was weakened.
+
+
+## Coach response continuity (Task 4.5)
+
+Chat sends bounded `conversationContext` (period/topics, reported categories,
+validated interpretations, offered action IDs and asked/answered question IDs),
+not sliced assistant transcripts. State is ephemeral and cleared with chat or consent
+revocation. Server identity/consent remains authoritative.
+
+The main answer shows every validated model paragraph. Labels distinguish complete
+AI, partial AI and evidence-only answers, based on actually displayed prose.
+`tests/fixtures/coach-conversation.json` contains only fabricated 2020 data: real
+synthetic Haiku output and its rendered backend replies, plus explicit contract fixtures.
+Playwright checks all five turns, all paragraphs, three prioritized ACTIONs, contextual
+summary/follow-up, partial output and misleading AI metadata. It never calls Anthropic.
+The raw model is not the only acceptance layer: visible UI text must match the backend.

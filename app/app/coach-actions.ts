@@ -36,6 +36,7 @@ export async function sendCoachMessage(input: CoachMessageInput) {
       message: input.message,
       previousQuestions: input.previousQuestions,
       previousAnswers: input.previousAnswers,
+      conversationContext: input.conversationContext,
       from: input.from,
       to: input.to,
     }),

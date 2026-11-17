@@ -14,6 +14,21 @@ export interface CoachReply {
   timezone: string;
   confidence: "limited" | "moderate";
   latestWearableDate: string | null;
+  latestImportedDate?: string | null;
+  completion?: "ai_assisted" | "ai_partial" | "evidence_only";
+  answerStatus?: "complete" | "partial" | "fallback";
+  partialNotice?: string;
+  rendering?: {
+    modelParagraphs: number;
+    validatedParagraphs: number;
+    displayedParagraphs: number;
+    omittedParagraphs: number;
+    actionItems: number;
+    requiredActionItems: number;
+  };
+  conversationContext?: CoachConversationContext;
+  fallbackNotice?: string;
+  failure?: { category: string; stage: string; retryable: boolean };
   blocks: CoachBlock[];
   followUp: string | null;
   mode: string;
@@ -40,6 +55,19 @@ export interface CoachMessageInput {
   message: string;
   previousQuestions?: string[];
   previousAnswers?: string[];
+  conversationContext?: CoachConversationContext;
   from?: string;
   to?: string;
+}
+export interface CoachConversationContext {
+  period?: { from: string; to: string };
+  topics?: string[];
+  reportedCircumstances?: string[];
+  conclusions?: {
+    kind: "HYPOTHESIS" | "UNKNOWN";
+    text: string;
+    evidenceIds: string[];
+  }[];
+  offeredActionIds?: string[];
+  followUps?: { id: string; status: "asked" | "answered" }[];
 }

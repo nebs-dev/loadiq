@@ -7,7 +7,12 @@ import {
   saveCoachNote,
   sendCoachMessage,
 } from "@/app/app/coach-actions";
-import type { CoachNote, CoachReply, CoachStatus } from "@/lib/coach-types";
+import type {
+  CoachNote,
+  CoachReply,
+  CoachStatus,
+  CoachConversationContext,
+} from "@/lib/coach-types";
 
 const button =
   "rounded-xl bg-[#0F8F63] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50";
@@ -31,6 +36,8 @@ export function WellbeingCoach({
   const [messages, setMessages] = useState<
     { question: string; reply: CoachReply }[]
   >([]);
+  const [conversationContext, setConversationContext] =
+    useState<CoachConversationContext>();
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -56,26 +63,36 @@ export function WellbeingCoach({
     if (busy || !message.trim()) return;
     setBusy(true);
     setError("");
+    const hr = /[čćžšđ]|\b(moje|sam|sna|stres|zašto|kako|što|predloži)\b/i.test(
+      message,
+    );
     try {
       const result = await sendCoachMessage({
         message,
         previousQuestions: messages.slice(-4).map((m) => m.question),
-        previousAnswers: messages
-          .slice(-4)
-          .map((m) => m.reply.answer.slice(0, 2000)),
+        conversationContext,
         ...(from && to ? { from, to } : {}),
       });
       if (!result.ok) {
-        setError(result.error);
+        setError(
+          hr
+            ? "Odgovor Coacha nije moguće dovršiti. Pokušajte ponovno."
+            : result.error,
+        );
         return;
       }
       setMessages((previous) => [
         ...previous.slice(-5),
         { question: message, reply: result.data },
       ]);
+      setConversationContext(result.data.conversationContext);
       setMessage("");
     } catch {
-      setError("Coach unavailable. Please retry.");
+      setError(
+        hr
+          ? "Odgovor Coacha nije moguće dovršiti. Pokušajte ponovno."
+          : "Coach unavailable. Please retry.",
+      );
     } finally {
       setBusy(false);
     }
@@ -89,7 +106,10 @@ export function WellbeingCoach({
       else {
         setStatus(result.data);
         setConfirmAi(false);
-        if (!enabled) setMessages([]);
+        if (!enabled) {
+          setMessages([]);
+          setConversationContext(undefined);
+        }
       }
     } catch {
       setError("Consent could not be updated. Please retry.");
@@ -242,7 +262,16 @@ export function WellbeingCoach({
         {messages.map((entry, i) => (
           <article key={i} className="rounded-xl border border-slate-200 p-4">
             <h3 className="font-semibold">You: {entry.question}</h3>
-            <Reply reply={entry.reply} />
+            <Reply
+              reply={entry.reply}
+              language={
+                /[čćžšđ]|\b(moje|sam|sna|stres|zašto|kako|što|predloži)\b/i.test(
+                  entry.question,
+                )
+                  ? "hr"
+                  : "en"
+              }
+            />
           </article>
         ))}
         {busy && <p role="status">Working with your evidence…</p>}
@@ -306,7 +335,10 @@ export function WellbeingCoach({
           <button
             type="button"
             className="ml-3 text-sm underline"
-            onClick={() => setMessages([])}
+            onClick={() => {
+              setMessages([]);
+              setConversationContext(undefined);
+            }}
           >
             Clear conversation
           </button>
@@ -374,17 +406,48 @@ export function WellbeingCoach({
 function Reply({
   reply,
   compact = false,
+  language = "en",
 }: {
   reply: CoachReply;
   compact?: boolean;
+  language?: "hr" | "en";
 }) {
+  const hr = language === "hr";
+  const hasAIText =
+    reply.blocks.some(
+      (b) => b.id.startsWith("conversation:") && reply.answer.includes(b.text),
+    ) &&
+    (!reply.rendering || reply.rendering.displayedParagraphs > 0);
+  const partial =
+    hasAIText &&
+    (reply.answerStatus === "partial" || reply.completion === "ai_partial");
   return (
     <div className="mt-4 text-sm text-slate-700">
       <h3 className="font-semibold text-slate-900">{reply.headline}</h3>
       <p className="mt-1 text-xs">
-        {reply.period.from}–{reply.period.to} · {reply.timezone} · Latest
-        wearable: {reply.latestWearableDate ?? "unknown"} · Data coverage:{" "}
-        {reply.confidence} · {reply.mode.replaceAll("_", " ")}
+        {reply.period.from}–{reply.period.to} · {reply.timezone} ·
+        {hr ? "Zadnji signal za Coach" : "Latest coaching signal"}:{" "}
+        {reply.latestWearableDate ?? "unknown"} ·{" "}
+        {hr ? "Zadnji uvezeni dan" : "Latest imported day"}:{" "}
+        {reply.latestImportedDate ?? reply.latestWearableDate ?? "unknown"} ·{" "}
+        {hr ? "Pokrivenost" : "Data coverage"}:{" "}
+        {hr
+          ? reply.confidence === "limited"
+            ? "ograničena"
+            : "umjerena"
+          : reply.confidence}{" "}
+        ·{" "}
+        {hasAIText
+          ? partial
+            ? hr
+              ? "AI odgovor — djelomično dovršen"
+              : "Partial AI-assisted answer"
+            : hr
+              ? "AI potpomognuti odgovor"
+              : "AI-assisted answer"
+          : hr
+            ? "Odgovor iz podataka — bez AI objašnjenja"
+            : "Evidence-only answer — not AI-generated"}
       </p>
       {!compact && (
         <p
@@ -398,7 +461,9 @@ function Reply({
         <summary className="cursor-pointer font-semibold">
           {compact
             ? "Key observations"
-            : "Measurements, evidence & limitations"}
+            : hr
+              ? "Mjerenja, dokazi i ograničenja"
+              : "Measurements, evidence & limitations"}
         </summary>
         <ul className="mt-3 space-y-3">
           {reply.blocks.map((block, i) => (
@@ -423,21 +488,31 @@ function Reply({
             </li>
           ))}
         </ul>
+        {!compact && reply.context.states.length > 0 && (
+          <p className="mt-3">
+            Existing detected states:{" "}
+            {reply.context.states
+              .map((s) => `${s.type} (${s.date})`)
+              .join(", ")}
+          </p>
+        )}
+        {!compact && reply.context.recommendations.length > 0 && (
+          <p className="mt-2">
+            Existing engine recommendations:{" "}
+            {reply.context.recommendations
+              .map((r) => `${r.type} (${r.date})`)
+              .join(", ")}
+          </p>
+        )}
+        {!compact && reply.failure && (
+          <p className="mt-2 text-xs">
+            {hr
+              ? "Tehnička kategorija neuspjeha"
+              : "Technical failure category"}
+            : {reply.failure.stage} / {reply.failure.category}
+          </p>
+        )}
       </details>
-      {!compact && reply.context.states.length > 0 && (
-        <p className="mt-3">
-          Existing detected states:{" "}
-          {reply.context.states.map((s) => `${s.type} (${s.date})`).join(", ")}
-        </p>
-      )}
-      {!compact && reply.context.recommendations.length > 0 && (
-        <p className="mt-2">
-          Existing engine recommendations:{" "}
-          {reply.context.recommendations
-            .map((r) => `${r.type} (${r.date})`)
-            .join(", ")}
-        </p>
-      )}
       <p className="mt-3 text-xs text-slate-500">{reply.attribution}</p>
     </div>
   );
