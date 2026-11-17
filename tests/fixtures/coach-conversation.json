@@ -1,0 +1,51 @@
+{
+  "synthetic": true,
+  "source": "Backend deterministic acceptance fixture; not real LLM output",
+  "questions": [
+    {
+      "question": "Analiziraj moje podatke za zadnjih 30 dana. Što su tri najvažnije promjene koje primjećuješ u mom zdravlju i wellbeingu? Objasni mi konkretno što se promijenilo, koliko i što bih trebao napraviti.",
+      "answer": "Najviše se izdvajaju sljedeće opisne promjene. One pokazuju što se promijenilo, ali same ne određuju zdravstveno stanje ni uzrok.\n\nPrethodno jednako dugo razdoblje nema dovoljnu pokrivenost. Zato uspoređujem jednake polovice unutar traženog razdoblja; datumi i broj mjerenja navedeni su uz svaku promjenu.\n\nFiziološki stres: 50 /100 (2020-02-01–2020-02-15, 15 mjerenja) prema 25 /100 (2020-01-17–2020-01-31, 15 mjerenja); promjena +25 /100.\n\nBody Battery: 45 /100 (2020-02-01–2020-02-15, 15 mjerenja) prema 75 /100 (2020-01-17–2020-01-31, 15 mjerenja); promjena -30 /100.\n\nTrajanje sna: 360 min (2020-02-01–2020-02-15, 15 mjerenja) prema 450 min (2020-01-17–2020-01-31, 15 mjerenja); promjena -90 min.\n\n1. Zaštitite dovoljno vremena za san uz što stalnije vrijeme buđenja; ako posao pomiče odlazak na spavanje, ranije završite večernje obveze. Nakon sedam dana usporedite trajanje i ocjenu sna s navedenim početnim razdobljem te zabilježite budite li se odmornije.\n\n2. U najopterećenijem dijelu radnog dana zaštitite kratku pauzu bez posla, ili uvedite mirniji završetak večeri. Nakon sedam dana usporedite fiziološki stres i san s početnim razdobljem, zajedno s vlastitim osjećajem napetosti.\n\nJe li se promijenio raspored spavanja ili opterećenje na poslu?",
+      "period": {
+        "from": "2020-01-17",
+        "to": "2020-02-15",
+        "days": 30
+      }
+    },
+    {
+      "question": "Zašto misliš da su mi Body Battery i trajanje sna pali, a stres porastao? Koja su najvjerojatnija objašnjenja na temelju podataka koje imaš?",
+      "answer": "Podaci podupiru obrazac: kraći san, viši fiziološki stres, niži Body Battery. Najprije vrijedi razmotriti promjene sna i ukupnog opterećenja; njihov stvarni uzrok nije izmjeren.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost; ovo su jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\n1. Zaštitite dovoljno vremena za san uz što stalnije vrijeme buđenja; ako posao pomiče odlazak na spavanje, ranije završite večernje obveze. Nakon sedam dana usporedite trajanje i ocjenu sna s navedenim početnim razdobljem te zabilježite budite li se odmornije.\n\n2. U najopterećenijem dijelu radnog dana zaštitite kratku pauzu bez posla, ili uvedite mirniji završetak večeri. Nakon sedam dana usporedite fiziološki stres i san s početnim razdobljem, zajedno s vlastitim osjećajem napetosti.\n\nJe li se promijenio raspored spavanja ili opterećenje na poslu?",
+      "period": {
+        "from": "2020-01-17",
+        "to": "2020-02-15",
+        "days": 30
+      }
+    },
+    {
+      "question": "Zadnjih tjedana imao sam dosta posla, nekoliko puta sam se penjao i kasnije išao spavati. Garmin možda nije zabilježio sve aktivnosti. Mijenja li to tvoju procjenu i što bi sada preporučio?",
+      "answer": "Da, prijavljeni kontekst mijenja radnu pretpostavku, ali ne mijenja izmjerene vrijednosti. Naveli ste veće opterećenje poslom, penjanje, kasnije odlaske na spavanje. To je vaš iskaz, a ne potvrđen Garmin zapis. Usporedno se vidi kraći san, viši fiziološki stres, niži Body Battery; kraći san i dodatno opterećenje mogu pridonositi toj slici, ali uzrok nije dokazan.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost; ovo su jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\n1. Zaštitite dovoljno vremena za san uz što stalnije vrijeme buđenja; ako posao pomiče odlazak na spavanje, ranije završite večernje obveze. Nakon sedam dana usporedite trajanje i ocjenu sna s navedenim početnim razdobljem te zabilježite budite li se odmornije.\n\n2. U najopterećenijem dijelu radnog dana zaštitite kratku pauzu bez posla, ili uvedite mirniji završetak večeri. Nakon sedam dana usporedite fiziološki stres i san s početnim razdobljem, zajedno s vlastitim osjećajem napetosti.\n\nKoliko je prijavljena aktivnost bila zahtjevna i kako ste se osjećali nakon nje?",
+      "period": {
+        "from": "2020-01-17",
+        "to": "2020-02-15",
+        "days": 30
+      }
+    },
+    {
+      "question": "Predloži mi tri konkretne promjene koje bih mogao napraviti tijekom sljedećih sedam dana. Posloži ih po važnosti i objasni kako ćemo znati jesu li pomogle.",
+      "answer": "Za sljedećih sedam dana predlažem ovaj redoslijed, prema dostupnim dokazima. Mijenjajte što manje stvari odjednom kako biste lakše procijenili učinak.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost; ovo su jednake polovice traženog razdoblja.\n\n1. Zaštitite dovoljno vremena za san uz što stalnije vrijeme buđenja; ako posao pomiče odlazak na spavanje, ranije završite večernje obveze. Nakon sedam dana usporedite trajanje i ocjenu sna s navedenim početnim razdobljem te zabilježite budite li se odmornije.\nRazlog: Trajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\n2. U najopterećenijem dijelu radnog dana zaštitite kratku pauzu bez posla, ili uvedite mirniji završetak večeri. Nakon sedam dana usporedite fiziološki stres i san s početnim razdobljem, zajedno s vlastitim osjećajem napetosti.\nRazlog: Fiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\n3. Ako se osjećate nedovoljno oporavljeno, izaberite lakšu aktivnost umjesto dodatnog zahtjevnog treninga. Sljedećih sedam dana pratite osjećaj oporavka uz HRV i puls u mirovanju; promjena ne dokazuje uzrok.\nRazlog: Body Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nKoliko je prijavljena aktivnost bila zahtjevna i kako ste se osjećali nakon nje?",
+      "period": {
+        "from": "2020-01-17",
+        "to": "2020-02-15",
+        "days": 30
+      }
+    },
+    {
+      "question": "Na temelju svega što smo dosad razgovarali, što smatraš glavnim problemom, što još ne znaš i koje bi mi jedno pitanje postavio kako bi bolje razumio moju situaciju?",
+      "answer": "Glavna radna pretpostavka nije dijagnoza: kraći san, viši fiziološki stres, niži Body Battery upućuju na nepovoljniji obrazac odmora i opterećenja u ovoj usporedbi. Naveli ste veće opterećenje poslom, penjanje, kasnije odlaske na spavanje. To je vaš iskaz, a ne potvrđen Garmin zapis. Nije potvrđeno što je uzrok ni koliko je nezabilježena aktivnost bila zahtjevna.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost; ovo su jednake polovice traženog razdoblja.\n\nPotpora: Fiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja). Body Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja). Trajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nJoš ne znam vaš točan raspored spavanja, zahtjevnost prijavljenih aktivnosti ni kako se subjektivno osjećate. Dnevni prosjeci ne otkrivaju vremenski slijed mogućih uzroka.\n\nKada radnim danom obično liježete i ustajete te razlikuje li se to vikendom?",
+      "period": {
+        "from": "2020-01-17",
+        "to": "2020-02-15",
+        "days": 30
+      }
+    }
+  ]
+}

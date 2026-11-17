@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import acceptance from "./fixtures/coach-conversation.json";
 test.beforeEach(async ({ page }) => {
   await page.route("**/*", (route) =>
     new URL(route.request().url()).origin === "http://127.0.0.1:4318"
@@ -8,6 +9,88 @@ test.beforeEach(async ({ page }) => {
   await page.setExtraHTTPHeaders({
     "x-loadiq-e2e-session": "synthetic-e2e-local-only:alice",
   });
+});
+test("failed backend chat request explicitly says the Croatian answer could not be completed", async ({
+  page,
+}) => {
+  await page.setExtraHTTPHeaders({
+    "x-loadiq-e2e-session": "synthetic-e2e-local-only:alice",
+    "x-loadiq-e2e-scenario": "coach_chat_error",
+  });
+  await page.goto("/app");
+  const coach = page.getByRole("region", { name: "Wellbeing Coach" });
+  await coach
+    .getByLabel("Ask your Wellbeing Coach")
+    .fill("Zašto mi je HRV niži?");
+  await coach.getByRole("button", { name: "Ask coach", exact: true }).click();
+  await expect(coach.getByRole("alert")).toContainText("nije moguće dovršiti");
+  await expect(coach.getByLabel("Coach answer")).toHaveCount(0);
+});
+test("all five Croatian acceptance questions retain context and fulfil their specific intent", async ({
+  page,
+}) => {
+  await page.setExtraHTTPHeaders({
+    "x-loadiq-e2e-session": "synthetic-e2e-local-only:alice",
+    "x-loadiq-e2e-scenario": "coach_five_turn",
+  });
+  await page.goto("/app");
+  const coach = page.getByRole("region", { name: "Wellbeing Coach" });
+  for (let i = 0; i < acceptance.questions.length; i++) {
+    await coach
+      .getByLabel("Ask your Wellbeing Coach")
+      .fill(acceptance.questions[i].question);
+    await coach.getByRole("button", { name: "Ask coach", exact: true }).click();
+    const answer = coach.getByLabel("Coach answer").last();
+    await expect(answer).toHaveText(acceptance.questions[i].answer);
+    if (i === 3) {
+      await expect(answer).toContainText("1.");
+      await expect(answer).toContainText("2.");
+      await expect(answer).toContainText("3.");
+      await expect(answer).toContainText("Razlog:");
+    }
+    if (i === 4) {
+      await expect(answer).toContainText("Glavna radna pretpostavka");
+      await expect(answer).toContainText("penjanje");
+      await expect(answer).toContainText("kasnije odlaske");
+      await expect(answer).toContainText("Još ne znam");
+      expect(((await answer.innerText()).match(/\?/g) ?? []).length).toBe(1);
+    }
+  }
+  await expect(coach.getByRole("alert")).toHaveCount(0);
+});
+test("Croatian validation fallback is explicit and technical details stay collapsed", async ({
+  page,
+}) => {
+  await page.setExtraHTTPHeaders({
+    "x-loadiq-e2e-session": "synthetic-e2e-local-only:alice",
+    "x-loadiq-e2e-scenario": "coach_validation",
+  });
+  await page.goto("/app");
+  const coach = page.getByRole("region", { name: "Wellbeing Coach" });
+  await coach
+    .getByLabel("Ask your Wellbeing Coach")
+    .fill("Zašto mi je HRV niži?");
+  await coach.getByRole("button", { name: "Ask coach", exact: true }).click();
+  await expect(coach.getByLabel("Coach answer")).toContainText(
+    "AI odgovor nije dovršen",
+  );
+  await expect(
+    coach.getByText("Odgovor iz podataka — bez AI objašnjenja", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await expect(
+    coach.getByText("Tehnička kategorija neuspjeha", { exact: false }),
+  ).not.toBeVisible();
+  await expect(
+    coach.getByText("Zadnji uvezeni dan: 2020-01-07", { exact: false }),
+  ).toBeVisible();
+  await coach
+    .getByText("Mjerenja, dokazi i ograničenja", { exact: true })
+    .click();
+  await expect(
+    coach.getByText("Tehnička kategorija neuspjeha", { exact: false }),
+  ).toContainText("narrative_validation");
 });
 test("brief and chat display the same factual data with evidence", async ({
   page,

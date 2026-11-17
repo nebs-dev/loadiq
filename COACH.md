@@ -51,3 +51,7 @@ owner consent. Playwright uses mocked provider responses and is not a real-provi
 ## Task 4.3
 
 Chat displays a concise conversational answer; full measurements and limitations remain expandable. Ephemeral previous assistant answers include follow-up questions for continuity. No transcript is persisted. Real WorkOS staging login is verified locally with development bypass off. UI consent remains owner-controlled and can be recorded while AI is paused. No real health questions are sent until separate explicit consent and usage approval. Backend evaluations include twenty synthetic Haiku/Sonnet pairs and Croatian multi-turn repeats.
+
+## Task 4.4
+
+Chat now labels AI-assisted versus evidence-only answers, displays the imported-day/coaching-signal distinction and keeps technical failure categories and raw engine enums collapsed with evidence. Croatian backend/provider failure paths explicitly say when the AI answer could not be completed. Five-turn browser regression uses fabricated deterministic backend output, not owner data or a real model. Consent/auth controls remain unchanged.

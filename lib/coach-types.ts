@@ -14,6 +14,10 @@ export interface CoachReply {
   timezone: string;
   confidence: "limited" | "moderate";
   latestWearableDate: string | null;
+  latestImportedDate?: string | null;
+  completion?: "ai_assisted" | "evidence_only";
+  fallbackNotice?: string;
+  failure?: { category: string; stage: string; retryable: boolean };
   blocks: CoachBlock[];
   followUp: string | null;
   mode: string;
