@@ -7,7 +7,12 @@ import {
   saveCoachNote,
   sendCoachMessage,
 } from "@/app/app/coach-actions";
-import type { CoachNote, CoachReply, CoachStatus } from "@/lib/coach-types";
+import type {
+  CoachNote,
+  CoachReply,
+  CoachStatus,
+  CoachConversationContext,
+} from "@/lib/coach-types";
 
 const button =
   "rounded-xl bg-[#0F8F63] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50";
@@ -31,6 +36,8 @@ export function WellbeingCoach({
   const [messages, setMessages] = useState<
     { question: string; reply: CoachReply }[]
   >([]);
+  const [conversationContext, setConversationContext] =
+    useState<CoachConversationContext>();
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -63,9 +70,7 @@ export function WellbeingCoach({
       const result = await sendCoachMessage({
         message,
         previousQuestions: messages.slice(-4).map((m) => m.question),
-        previousAnswers: messages
-          .slice(-4)
-          .map((m) => m.reply.answer.slice(0, 2000)),
+        conversationContext,
         ...(from && to ? { from, to } : {}),
       });
       if (!result.ok) {
@@ -80,6 +85,7 @@ export function WellbeingCoach({
         ...previous.slice(-5),
         { question: message, reply: result.data },
       ]);
+      setConversationContext(result.data.conversationContext);
       setMessage("");
     } catch {
       setError(
@@ -100,7 +106,10 @@ export function WellbeingCoach({
       else {
         setStatus(result.data);
         setConfirmAi(false);
-        if (!enabled) setMessages([]);
+        if (!enabled) {
+          setMessages([]);
+          setConversationContext(undefined);
+        }
       }
     } catch {
       setError("Consent could not be updated. Please retry.");
@@ -326,7 +335,10 @@ export function WellbeingCoach({
           <button
             type="button"
             className="ml-3 text-sm underline"
-            onClick={() => setMessages([])}
+            onClick={() => {
+              setMessages([]);
+              setConversationContext(undefined);
+            }}
           >
             Clear conversation
           </button>
@@ -401,6 +413,14 @@ function Reply({
   language?: "hr" | "en";
 }) {
   const hr = language === "hr";
+  const hasAIText =
+    reply.blocks.some(
+      (b) => b.id.startsWith("conversation:") && reply.answer.includes(b.text),
+    ) &&
+    (!reply.rendering || reply.rendering.displayedParagraphs > 0);
+  const partial =
+    hasAIText &&
+    (reply.answerStatus === "partial" || reply.completion === "ai_partial");
   return (
     <div className="mt-4 text-sm text-slate-700">
       <h3 className="font-semibold text-slate-900">{reply.headline}</h3>
@@ -417,10 +437,14 @@ function Reply({
             : "umjerena"
           : reply.confidence}{" "}
         ·{" "}
-        {reply.mode === "ai_selected"
-          ? hr
-            ? "AI potpomognuti odgovor"
-            : "AI-assisted answer"
+        {hasAIText
+          ? partial
+            ? hr
+              ? "AI odgovor — djelomično dovršen"
+              : "Partial AI-assisted answer"
+            : hr
+              ? "AI potpomognuti odgovor"
+              : "AI-assisted answer"
           : hr
             ? "Odgovor iz podataka — bez AI objašnjenja"
             : "Evidence-only answer — not AI-generated"}
