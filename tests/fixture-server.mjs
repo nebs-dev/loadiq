@@ -71,7 +71,52 @@ function summary(limited, bob) {
     imports: { recentCount: 0, latest: null },
   };
 }
-const server = createServer((req, res) => {
+const coachUsers = new Map();
+function coachReply(limited, bob) {
+  return {
+    headline: limited
+      ? "Historical signals — current wellbeing is unknown"
+      : "Your recent wellbeing signals",
+    period: { from: "2019-12-31", to: date, days: 7 },
+    today: date,
+    timezone: "Europe/Zagreb",
+    confidence: "limited",
+    latestWearableDate: limited ? null : date,
+    mode: "evidence_only",
+    blocks: limited
+      ? [
+          {
+            id: "freshness",
+            kind: "UNKNOWN",
+            text: "Current recovery is unknown.",
+            supports: [],
+          },
+        ]
+      : [
+          {
+            id: "hrv:fact",
+            kind: "FACT",
+            text: `Stored daily HRV: mean ${bob ? 70 : 40} ms (synthetic fixture).`,
+            dates: [date],
+            values: [bob ? 70 : 40],
+            supports: [],
+          },
+          {
+            id: "hrv:trend",
+            kind: "TREND",
+            text: "Synthetic HRV comparison; no cause is established.",
+            supports: ["hrv:fact"],
+          },
+        ],
+    followUp: "Has your sleep routine changed?",
+    answer: limited
+      ? "Current recovery is unknown."
+      : `Stored daily HRV: mean ${bob ? 70 : 40} ms (synthetic fixture).\n\nHas your sleep routine changed?`,
+    attribution: "Synthetic Garmin-compatible fixture; no personal data.",
+    context: { states: [], recommendations: [] },
+  };
+}
+const server = createServer(async (req, res) => {
   if (req.url === "/health") return res.end("ok");
   if (
     req.headers["x-loadiq-internal-api-key"] !== "synthetic-internal" ||
@@ -89,6 +134,77 @@ const server = createServer((req, res) => {
   const limited = req.headers["x-loadiq-e2e-scenario"] === "limited";
   const bob = req.headers["x-loadiq-external-auth-id"] === "synthetic-bob";
   const url = new URL(req.url, "http://127.0.0.1");
+  if (url.pathname.startsWith("/api/coach/")) {
+    if (req.headers["x-loadiq-e2e-scenario"] === "coach_error") {
+      res.writeHead(503);
+      return res.end();
+    }
+    const identity = req.headers["x-loadiq-external-auth-id"];
+    if (!coachUsers.has(identity))
+      coachUsers.set(identity, { consented: false, notes: [] });
+    const state = coachUsers.get(identity);
+    const paused = req.headers["x-loadiq-e2e-scenario"] === "coach_paused";
+    const status = () => ({
+      configured: !paused,
+      providerReady: true,
+      consented: state.consented,
+      policyVersion: "synthetic-policy-v1",
+      provider: "Synthetic provider",
+      notice:
+        "Synthetic AI consent fixture. No external LLM is called. Revocation stops new requests.",
+    });
+    let input = {};
+    if (req.method === "POST") {
+      let text = "";
+      for await (const part of req) text += part;
+      input = JSON.parse(text || "{}");
+    }
+    let result;
+    if (url.pathname.endsWith("/status")) result = status();
+    else if (url.pathname.endsWith("/consent")) {
+      state.consented = input.enabled === true;
+      result = status();
+    } else if (url.pathname.endsWith("/brief"))
+      result = coachReply(limited, bob);
+    else if (url.pathname.endsWith("/chat"))
+      result = {
+        ...coachReply(limited, bob),
+        mode: state.consented && !paused ? "ai_selected" : "evidence_only",
+        ...(state.consented && !paused
+          ? {
+              answer: `Stored daily HRV: mean ${bob ? 70 : 40} ms (synthetic fixture).\n\nSleep timing could be relevant, but these summaries cannot establish a cause.\n\nHas your sleep routine changed?`,
+              blocks: [
+                {
+                  id: "conversation:0",
+                  kind: "HYPOTHESIS",
+                  text: "Sleep timing could be relevant, but these summaries cannot establish a cause.",
+                  supports: ["hrv:fact"],
+                },
+                ...coachReply(limited, bob).blocks,
+              ],
+            }
+          : {}),
+      };
+    else if (req.method === "DELETE") {
+      state.notes = state.notes.filter(
+        (n) => n.id !== url.pathname.split("/").at(-1),
+      );
+      result = { removed: true };
+    } else if (req.method === "POST") {
+      if (!input.confirmed) {
+        res.writeHead(400);
+        return res.end();
+      }
+      result = {
+        id: `${identity}-${state.notes.length}`,
+        text: input.text,
+        confirmedAt: "2020-01-06T12:00:00Z",
+      };
+      state.notes.push(result);
+    } else result = state.notes;
+    res.setHeader("Content-Type", "application/json");
+    return res.end(JSON.stringify(result));
+  }
   const body = url.pathname.endsWith("/summary")
     ? summary(limited, bob)
     : url.pathname.endsWith("/timeline")

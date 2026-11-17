@@ -170,11 +170,18 @@ async function getApiHeaders() {
   };
 }
 
-async function apiFetch<T>(path: string) {
+async function apiFetch<T>(
+  path: string,
+  init?: { method: string; body?: string; signal?: AbortSignal },
+) {
   const baseUrl = requireEnv("LOADIQ_API_BASE_URL").replace(/\/$/, "");
   const headers = await getApiHeaders();
   const response = await fetch(`${baseUrl}${path}`, {
-    headers,
+    ...init,
+    headers: {
+      ...headers,
+      ...(init?.body ? { "Content-Type": "application/json" } : {}),
+    },
     cache: "no-store",
   });
 
@@ -185,6 +192,18 @@ async function apiFetch<T>(path: string) {
   }
 
   return (await response.json()) as T;
+}
+
+export async function coachApiRequest<T>(
+  path: string,
+  method = "GET",
+  body?: unknown,
+) {
+  return apiFetch<T>(`/api/coach${path}`, {
+    method,
+    signal: AbortSignal.timeout(path === "/chat" ? 30000 : 5000),
+    ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+  });
 }
 
 export async function getDashboardSummary() {

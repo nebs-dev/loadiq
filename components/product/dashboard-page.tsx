@@ -33,6 +33,8 @@ import {
   type ImportRecord,
 } from "@/lib/loadiq-api";
 import { TrendPanel } from "./trend-panel";
+import { WellbeingCoach } from "./wellbeing-coach";
+import { loadCoach } from "@/app/app/coach-actions";
 
 export async function DashboardPage() {
   const [{ user }, summary, timeline, recentActivity, recentImports] =
@@ -44,6 +46,7 @@ export async function DashboardPage() {
       getRecentImports(5),
     ]);
 
+  const coach = await loadCoach();
   const greetingName = user.firstName ?? user.email.split("@")[0];
   const activeStates = summary.daily.states.filter(
     (state) => state.status !== "RESOLVED",
@@ -80,6 +83,7 @@ export async function DashboardPage() {
       </header>
 
       <main className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 lg:px-8">
+        <WellbeingCoach initial={coach} />
         <section className="grid gap-6 xl:grid-cols-[1.4fr_1fr]">
           <Card className="overflow-hidden border-white/70 bg-[linear-gradient(135deg,#0F172A_0%,#11304A_55%,#0F8F63_100%)] text-white">
             <CardHeader className="pb-4">
