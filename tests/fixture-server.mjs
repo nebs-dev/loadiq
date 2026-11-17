@@ -255,24 +255,28 @@ const server = createServer(async (req, res) => {
         return res.end();
       }
       const turn = acceptance.questions[index];
-      result = {
-        ...coachReply(false, false),
-        period: turn.period,
-        answer: turn.answer,
-        latestWearableDate: "2020-02-15",
-        latestImportedDate: "2020-02-15",
-        mode: "evidence_only",
-        completion: "evidence_only",
-        blocks: [
-          {
-            id: "sleepDurationMin:trend",
-            kind: "TREND",
-            text: "Synthetic sleep comparison: 360 versus 450 min, change -90 min.",
-            supports: [],
-          },
-        ],
-        followUp: null,
-      };
+      if (
+        url.pathname.endsWith("/chat") &&
+        index > 0 &&
+        JSON.stringify(input.conversationContext) !==
+          JSON.stringify(
+            acceptance.questions[index - 1].reply.conversationContext,
+          )
+      ) {
+        res.writeHead(400);
+        return res.end();
+      }
+      result = turn.reply;
+    }
+    const contractScenario = req.headers["x-loadiq-e2e-scenario"];
+    if (
+      url.pathname.endsWith("/chat") &&
+      typeof contractScenario === "string" &&
+      contractScenario.startsWith("contract_")
+    ) {
+      result =
+        acceptance.contracts[contractScenario.slice("contract_".length)] ??
+        result;
     }
     res.setHeader("Content-Type", "application/json");
     return res.end(JSON.stringify(result));
