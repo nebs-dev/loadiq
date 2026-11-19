@@ -16,8 +16,16 @@ export interface CoachReply {
   latestWearableDate: string | null;
   latestImportedDate?: string | null;
   completion?: "ai_assisted" | "ai_partial" | "evidence_only";
-  answerStatus?: "complete" | "partial" | "fallback";
+  answerStatus?: "complete" | "partial" | "fallback" | "unavailable";
   partialNotice?: string;
+  task?: {
+    intent: string;
+    status: "complete" | "partial" | "unavailable";
+    issues: string[];
+    requestedItems: number;
+    patterns: number;
+    actionItems: number;
+  };
   rendering?: {
     modelParagraphs: number;
     validatedParagraphs: number;

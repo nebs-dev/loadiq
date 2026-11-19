@@ -72,3 +72,13 @@ synthetic Haiku output and its rendered backend replies, plus explicit contract 
 Playwright checks all five turns, all paragraphs, three prioritized ACTIONs, contextual
 summary/follow-up, partial output and misleading AI metadata. It never calls Anthropic.
 The raw model is not the only acceptance layer: visible UI text must match the backend.
+
+
+## Task 4.6 task fulfilment
+
+Coach replies carry an additive `task` contract. AI provenance is separate from whether the
+request was fulfilled. Partial output shows requested/displayed counts; unavailable requests
+remain explicit. The five exact real-user question formulations use synthetic stale-history
+Haiku recordings, validated and rendered by the backend, then replayed locally in Playwright.
+The fixture identifies recorded real outputs and the targeted Q3 rerun, not a second fresh
+five-call run. No real Garmin data or paid model calls are used by CI.
