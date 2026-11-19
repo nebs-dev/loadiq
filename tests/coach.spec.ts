@@ -42,6 +42,18 @@ test("all five Croatian acceptance questions retain context and fulfil their spe
     await coach.getByRole("button", { name: "Ask coach", exact: true }).click();
     const answer = coach.getByLabel("Coach answer").last();
     await expect(answer).toHaveText(acceptance.questions[i].answer);
+    expect(acceptance.questions[i].reply.task.status).toBe("complete");
+    expect(acceptance.questions[i].reply.context).toBeTruthy();
+    if (i === 0) expect(acceptance.questions[i].reply.task.patterns).toBe(3);
+    if (i === 1)
+      expect(
+        (await answer.innerText()).match(/(?:^|\n\n)[12]\. /g),
+      ).toHaveLength(2);
+    if (i === 2)
+      expect(acceptance.questions[i].reply.task.intent).toBe(
+        "personal_context",
+      );
+
     for (const paragraph of acceptance.questions[i].rawSelection.narrative) {
       await expect(answer).toContainText(paragraph.text);
     }
@@ -57,11 +69,16 @@ test("all five Croatian acceptance questions retain context and fulfil their spe
       await expect(answer).toContainText("2.");
       await expect(answer).toContainText("3.");
       await expect(answer).toContainText("Razlog:");
+      expect(
+        (await answer.innerText()).match(/Provjera nakon 7 dana/g),
+      ).toHaveLength(3);
     }
     if (i === 4) {
-      await expect(answer).toContainText("Glavni obrazac");
-      await expect(answer).toContainText("penjanje");
-      await expect(answer).toContainText("kasniji odlasci");
+      expect(acceptance.questions[i].reply.task.intent).toBe(
+        "conversation_summary",
+      );
+      await expect(answer).toContainText(/penj/i);
+
       await expect(answer).toContainText("Ne znam");
       expect(((await answer.innerText()).match(/\?/g) ?? []).length).toBe(1);
     }
@@ -327,3 +344,31 @@ for (const scenario of [
     }
   });
 }
+
+test("missing requested actions stays visibly partial even when all model paragraphs are displayed", async ({
+  page,
+}) => {
+  await page.setExtraHTTPHeaders({
+    "x-loadiq-e2e-session": "synthetic-e2e-local-only:alice",
+    "x-loadiq-e2e-scenario": "contract_incomplete_request",
+  });
+  await page.goto("/app");
+  const coach = page.getByRole("region", { name: "Wellbeing Coach" });
+  await coach
+    .getByLabel("Ask your Wellbeing Coach")
+    .fill("Predloži tri promjene za sljedeći tjedan.");
+  await coach.getByRole("button", { name: "Ask coach", exact: true }).click();
+  const expected = acceptance.contracts.incomplete_request;
+  await expect(coach.getByLabel("Coach answer").last()).toHaveText(
+    expected.answer,
+  );
+  await expect(
+    coach.getByText("Zahtjev je samo djelomično ispunjen.", { exact: false }),
+  ).toBeVisible();
+  expect(expected.task.status).toBe("partial");
+  expect(expected.task.requestedItems).toBe(3);
+  expect(expected.rendering.displayedParagraphs).toBe(2);
+  await expect(
+    coach.getByText("AI odgovor — djelomično dovršen", { exact: false }),
+  ).toBeVisible();
+});

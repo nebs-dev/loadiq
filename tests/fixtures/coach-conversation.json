@@ -1,81 +1,100 @@
 {
   "synthetic": true,
-  "source": "Real Haiku -> validated backend, Task 4.5, fabricated 2020 measurements only",
+  "source": "Task4.6 stale synthetic history: real Haiku responses through final backend, four recorded responses and targeted Q3 rerun",
   "model": "claude-haiku-5-5",
   "questions": [
     {
-      "question": "Analiziraj moje podatke za zadnjih 30 dana. Što su tri najvažnije promjene koje primjećuješ u mom zdravlju i wellbeingu? Objasni mi konkretno što se promijenilo, koliko i što bih trebao napraviti.",
-      "answer": "Najjača promjena je pad Body Battery i sna zajedno s porastom fiziološkog stresa u drugoj polovici perioda: kraće spavanje i niži Body Battery idu zajedno s višim stresom, što može upućivati na veće opterećenje oporavka, iako ostali signali nisu jednako izraženi. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nKvaliteta sna i broj koraka ostali su stabilni, pa promjena izgleda usmjerena više na trajanje sna i dnevnu napetost nego na aktivnost. Aktivnost nije dostupna za ovaj period, pa se ne može procijeniti njezin udio.\n\nTijekom sljedećeg tjedna pokušaj održavati dosljedno vrijeme buđenja i dovoljno vremena u krevetu te usporedi trajanje sna, Body Battery i stres s ovim periodom, uz bilješku kako se osjećaš ujutro.\n\nKako se osjećaš ujutro i tijekom dana u usporedbi s razdobljem prije ovih promjena?",
+      "question": "Analiziraj moje podatke za zadnjih 30 dana. Koja su tri najvažnija obrasca koja primjećuješ? Objasni konkretne promjene i što one znače.",
+      "answer": "1. Kraće spavanje i niža Body Battery u drugom dijelu razdoblja uz viši fiziološki stres mogu zajedno ukazivati na slabiji oporavak. Spavanje se skratilo, Body Battery je pao, a stres je porastao, pa ti je ovo najvažniji obrazac. Podaci ne pokazuju uzrok.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\n2. Porast stresa uz blagi pad HRV-a može biti koherentan jer stres raste dok signali oporavka slabe. HRV promjena je mala i ne smije se tumačiti kao značajan pad. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe.\n\n3. Ocjena spavanja, koraci i tjelesna masa su nepromijenjeni, pa ti ti signali opisuju samo stabilnost tih mjerenja. Aktivnost nije dostupna u ovom razdoblju, a posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
       "period": {
-        "from": "2020-01-17",
-        "to": "2020-02-15",
+        "from": "2020-01-20",
+        "to": "2020-02-18",
         "days": 30
       },
+      "responseSource": "recorded_real",
       "rawSelection": {
         "narrative": [
           {
             "kind": "HYPOTHESIS",
-            "text": "Najjača promjena je pad Body Battery i sna zajedno s porastom fiziološkog stresa u drugoj polovici perioda: kraće spavanje i niži Body Battery idu zajedno s višim stresom, što može upućivati na veće opterećenje oporavka, iako ostali signali nisu jednako izraženi. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+            "text": "Kraće spavanje i niža Body Battery u drugom dijelu razdoblja uz viši fiziološki stres mogu zajedno ukazivati na slabiji oporavak. Spavanje se skratilo, Body Battery je pao, a stres je porastao, pa ti je ovo najvažniji obrazac. Podaci ne pokazuju uzrok.",
             "evidenceIds": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend"
             ]
           },
           {
             "kind": "HYPOTHESIS",
-            "text": "Kvaliteta sna i broj koraka ostali su stabilni, pa promjena izgleda usmjerena više na trajanje sna i dnevnu napetost nego na aktivnost. Aktivnost nije dostupna za ovaj period, pa se ne može procijeniti njezin udio.",
-            "evidenceIds": ["sleepScore:trend", "steps:trend", "activity:fact"]
+            "text": "Porast stresa uz blagi pad HRV-a može biti koherentan jer stres raste dok signali oporavka slabe. HRV promjena je mala i ne smije se tumačiti kao značajan pad. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe.",
+            "evidenceIds": ["hrv:trend", "restingHr:trend", "stressScore:trend"]
           },
           {
-            "kind": "ACTION",
-            "text": "Tijekom sljedećeg tjedna pokušaj održavati dosljedno vrijeme buđenja i dovoljno vremena u krevetu te usporedi trajanje sna, Body Battery i stres s ovim periodom, uz bilješku kako se osjećaš ujutro.",
-            "evidenceIds": ["sleep_experiment", "sleepDurationMin:trend"]
+            "kind": "UNKNOWN",
+            "text": "Ocjena spavanja, koraci i tjelesna masa su nepromijenjeni, pa ti ti signali opisuju samo stabilnost tih mjerenja. Aktivnost nije dostupna u ovom razdoblju, a posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+            "evidenceIds": [
+              "sleepScore:trend",
+              "steps:trend",
+              "activity:fact",
+              "freshness"
+            ]
           }
         ],
         "observationIds": [
-          "bodyBattery:trend",
           "sleepDurationMin:trend",
-          "stressScore:trend"
+          "bodyBattery:trend",
+          "hrv:trend"
         ],
         "hypothesisIds": [],
-        "actionIds": ["sleep_experiment"],
-        "followUpId": "felt_wellbeing"
+        "actionIds": [],
+        "followUpId": null
       },
       "reply": {
-        "headline": "Vaši nedavni signali u kontekstu",
+        "task": {
+          "intent": "overview",
+          "status": "complete",
+          "issues": [],
+          "requestedItems": 3,
+          "patterns": 3,
+          "actionItems": 0
+        },
+        "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
         "period": {
-          "from": "2020-01-17",
-          "to": "2020-02-15",
+          "from": "2020-01-20",
+          "to": "2020-02-18",
           "days": 30
         },
-        "today": "2020-02-15",
+        "today": "2020-02-18",
         "timezone": "Europe/Zagreb",
-        "confidence": "moderate",
+        "confidence": "limited",
         "latestWearableDate": "2020-02-15",
         "latestImportedDate": "2020-02-15",
         "blocks": [
           {
             "id": "conversation:0",
             "kind": "HYPOTHESIS",
-            "text": "Najjača promjena je pad Body Battery i sna zajedno s porastom fiziološkog stresa u drugoj polovici perioda: kraće spavanje i niži Body Battery idu zajedno s višim stresom, što može upućivati na veće opterećenje oporavka, iako ostali signali nisu jednako izraženi. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+            "text": "Kraće spavanje i niža Body Battery u drugom dijelu razdoblja uz viši fiziološki stres mogu zajedno ukazivati na slabiji oporavak. Spavanje se skratilo, Body Battery je pao, a stres je porastao, pa ti je ovo najvažniji obrazac. Podaci ne pokazuju uzrok.",
             "supports": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend"
             ]
           },
           {
             "id": "conversation:1",
             "kind": "HYPOTHESIS",
-            "text": "Kvaliteta sna i broj koraka ostali su stabilni, pa promjena izgleda usmjerena više na trajanje sna i dnevnu napetost nego na aktivnost. Aktivnost nije dostupna za ovaj period, pa se ne može procijeniti njezin udio.",
-            "supports": ["sleepScore:trend", "steps:trend", "activity:fact"]
+            "text": "Porast stresa uz blagi pad HRV-a može biti koherentan jer stres raste dok signali oporavka slabe. HRV promjena je mala i ne smije se tumačiti kao značajan pad. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe.",
+            "supports": ["hrv:trend", "restingHr:trend", "stressScore:trend"]
           },
           {
             "id": "conversation:2",
-            "kind": "ACTION",
-            "text": "Tijekom sljedećeg tjedna pokušaj održavati dosljedno vrijeme buđenja i dovoljno vremena u krevetu te usporedi trajanje sna, Body Battery i stres s ovim periodom, uz bilješku kako se osjećaš ujutro.",
-            "supports": ["sleep_experiment", "sleepDurationMin:trend"]
+            "kind": "UNKNOWN",
+            "text": "Ocjena spavanja, koraci i tjelesna masa su nepromijenjeni, pa ti ti signali opisuju samo stabilnost tih mjerenja. Aktivnost nije dostupna u ovom razdoblju, a posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+            "supports": [
+              "sleepScore:trend",
+              "steps:trend",
+              "activity:fact",
+              "freshness"
+            ]
           },
           {
             "id": "stressScore:fact",
@@ -83,9 +102,6 @@
             "signal": "stressScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -115,10 +131,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress: mean 37.5 /100 across 30/30 days (2020-01-17–2020-02-15); latest 50 /100 on 2020-02-15."
+            "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
           },
           {
             "id": "stressScore:trend",
@@ -126,9 +142,6 @@
             "signal": "stressScore",
             "supports": ["stressScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -158,10 +171,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress rose: mean 50 /100 (15 samples, 2020-02-01–2020-02-15) vs 25 (15 samples, 2020-01-17–2020-01-31); difference 25 /100. Not a significance test or cause."
+            "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
           },
           {
             "id": "bodyBattery:fact",
@@ -169,9 +182,6 @@
             "signal": "bodyBattery",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -201,10 +211,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery: mean 60 /100 across 30/30 days (2020-01-17–2020-02-15); latest 45 /100 on 2020-02-15."
+            "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
           },
           {
             "id": "bodyBattery:trend",
@@ -212,9 +222,6 @@
             "signal": "bodyBattery",
             "supports": ["bodyBattery:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -244,10 +251,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery fell: mean 45 /100 (15 samples, 2020-02-01–2020-02-15) vs 75 (15 samples, 2020-01-17–2020-01-31); difference -30 /100. Not a significance test or cause."
+            "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
           },
           {
             "id": "sleepDurationMin:fact",
@@ -255,9 +262,6 @@
             "signal": "sleepDurationMin",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -287,11 +291,11 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration: mean 405 min across 30/30 days (2020-01-17–2020-02-15); latest 360 min on 2020-02-15."
+            "text": "Sleep duration: mean 400 min across 27/30 days (2020-01-20–2020-02-18); latest 360 min on 2020-02-15."
           },
           {
             "id": "sleepDurationMin:trend",
@@ -299,9 +303,6 @@
             "signal": "sleepDurationMin",
             "supports": ["sleepDurationMin:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -331,17 +332,171 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration fell: mean 360 min (15 samples, 2020-02-01–2020-02-15) vs 450 (15 samples, 2020-01-17–2020-01-31); difference -90 min. Not a significance test or cause."
+            "text": "Sleep duration fell: mean 360 min (12 samples, 2020-02-04–2020-02-18) vs 432 (15 samples, 2020-01-20–2020-02-03); difference -72 min. Not a significance test or cause."
           },
           {
-            "id": "sleep_experiment",
-            "kind": "ACTION",
-            "supports": ["sleepDurationMin:trend"],
-            "text": "Keep a consistent wake-up time and protect enough time in bed this week, rather than trying to change every routine. Compare next week’s sleep duration and score with this period, and note whether waking feels easier. Schedule timing is not measured here."
+            "id": "hrv:fact",
+            "kind": "FACT",
+            "signal": "hrv",
+            "supports": [],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+            ],
+            "text": "Stored daily HRV: mean 59.44 ms across 27/30 days (2020-01-20–2020-02-18); latest 59 ms on 2020-02-15."
+          },
+          {
+            "id": "hrv:trend",
+            "kind": "TREND",
+            "signal": "hrv",
+            "supports": ["hrv:fact"],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+            ],
+            "text": "Stored daily HRV fell: mean 59 ms (12 samples, 2020-02-04–2020-02-18) vs 59.8 (15 samples, 2020-01-20–2020-02-03); difference -0.8 ms. Small descriptive HRV change; do not label it a meaningful recovery decline. Not a significance test or cause."
+          },
+          {
+            "id": "restingHr:fact",
+            "kind": "FACT",
+            "signal": "restingHr",
+            "supports": [],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
+            ],
+            "text": "Resting HR: mean 55 bpm across 27/30 days (2020-01-20–2020-02-18); latest 55 bpm on 2020-02-15."
+          },
+          {
+            "id": "restingHr:trend",
+            "kind": "TREND",
+            "signal": "restingHr",
+            "supports": ["restingHr:fact"],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
+            ],
+            "text": "Resting HR was unchanged: mean 55 bpm (12 samples, 2020-02-04–2020-02-18) vs 55 (15 samples, 2020-01-20–2020-02-03); difference 0 bpm. Not a significance test or cause."
           },
           {
             "id": "sleepScore:fact",
@@ -349,9 +504,6 @@
             "signal": "sleepScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -382,9 +534,9 @@
             ],
             "values": [
               85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85,
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
+              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
             ],
-            "text": "Sleep score: mean 85 /100 across 30/30 days (2020-01-17–2020-02-15); latest 85 /100 on 2020-02-15."
+            "text": "Sleep score: mean 85 /100 across 27/30 days (2020-01-20–2020-02-18); latest 85 /100 on 2020-02-15."
           },
           {
             "id": "sleepScore:trend",
@@ -392,9 +544,6 @@
             "signal": "sleepScore",
             "supports": ["sleepScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -425,9 +574,9 @@
             ],
             "values": [
               85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85,
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
+              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
             ],
-            "text": "Sleep score was unchanged: mean 85 /100 (15 samples, 2020-02-01–2020-02-15) vs 85 (15 samples, 2020-01-17–2020-01-31); difference 0 /100. Not a significance test or cause."
+            "text": "Sleep score was unchanged: mean 85 /100 (12 samples, 2020-02-04–2020-02-18) vs 85 (15 samples, 2020-01-20–2020-02-03); difference 0 /100. Not a significance test or cause."
           },
           {
             "id": "steps:fact",
@@ -435,9 +584,6 @@
             "signal": "steps",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -469,9 +615,9 @@
             "values": [
               8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
               8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000
+              8000, 8000, 8000, 8000, 8000
             ],
-            "text": "Steps: mean 8000 steps across 30/30 days (2020-01-17–2020-02-15); latest 8000 steps on 2020-02-15."
+            "text": "Steps: mean 8000 steps across 27/30 days (2020-01-20–2020-02-18); latest 8000 steps on 2020-02-15."
           },
           {
             "id": "steps:trend",
@@ -479,9 +625,6 @@
             "signal": "steps",
             "supports": ["steps:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -513,17 +656,79 @@
             "values": [
               8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
               8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000
+              8000, 8000, 8000, 8000, 8000
             ],
-            "text": "Steps was unchanged: mean 8000 steps (15 samples, 2020-02-01–2020-02-15) vs 8000 (15 samples, 2020-01-17–2020-01-31); difference 0 steps. Not a significance test or cause."
+            "text": "Steps was unchanged: mean 8000 steps (12 samples, 2020-02-04–2020-02-18) vs 8000 (15 samples, 2020-01-20–2020-02-03); difference 0 steps. Not a significance test or cause."
           },
           {
             "id": "activity:fact",
             "kind": "FACT",
             "supports": [],
-            "dates": ["2020-01-17", "2020-02-15"],
+            "dates": ["2020-01-20", "2020-02-18"],
             "values": [0, 0],
             "text": "Activity history is not available in LoadIQ for this period. The current Personal API health sync does not ingest activities. This is not evidence of inactivity."
+          },
+          {
+            "id": "freshness",
+            "kind": "UNKNOWN",
+            "supports": [],
+            "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+          },
+          {
+            "id": "hrv:stale",
+            "kind": "UNKNOWN",
+            "signal": "hrv",
+            "supports": [],
+            "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "restingHr:stale",
+            "kind": "UNKNOWN",
+            "signal": "restingHr",
+            "supports": [],
+            "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepDurationMin:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepDurationMin",
+            "supports": [],
+            "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepScore",
+            "supports": [],
+            "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "stressScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "stressScore",
+            "supports": [],
+            "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "bodyBattery:stale",
+            "kind": "UNKNOWN",
+            "signal": "bodyBattery",
+            "supports": [],
+            "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "steps:stale",
+            "kind": "UNKNOWN",
+            "signal": "steps",
+            "supports": [],
+            "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "weightKg:stale",
+            "kind": "UNKNOWN",
+            "signal": "weightKg",
+            "supports": [],
+            "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
             "id": "partial_today",
@@ -544,15 +749,15 @@
             "text": "Existing UTC calendar buckets are preserved. Personal API HRV is the nightly average; legacy FIT HRV may use a fallback statistic. Body Battery is a stored daily value, not a daily mean. Row-level sources cannot establish exact per-field provenance, so mixed-source trends need caution."
           }
         ],
-        "followUp": "Kako se osjećaš ujutro i tijekom dana u usporedbi s razdobljem prije ovih promjena?",
-        "answer": "Najjača promjena je pad Body Battery i sna zajedno s porastom fiziološkog stresa u drugoj polovici perioda: kraće spavanje i niži Body Battery idu zajedno s višim stresom, što može upućivati na veće opterećenje oporavka, iako ostali signali nisu jednako izraženi. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nKvaliteta sna i broj koraka ostali su stabilni, pa promjena izgleda usmjerena više na trajanje sna i dnevnu napetost nego na aktivnost. Aktivnost nije dostupna za ovaj period, pa se ne može procijeniti njezin udio.\n\nTijekom sljedećeg tjedna pokušaj održavati dosljedno vrijeme buđenja i dovoljno vremena u krevetu te usporedi trajanje sna, Body Battery i stres s ovim periodom, uz bilješku kako se osjećaš ujutro.\n\nKako se osjećaš ujutro i tijekom dana u usporedbi s razdobljem prije ovih promjena?",
-        "followUpId": "felt_wellbeing",
+        "followUp": null,
+        "answer": "1. Kraće spavanje i niža Body Battery u drugom dijelu razdoblja uz viši fiziološki stres mogu zajedno ukazivati na slabiji oporavak. Spavanje se skratilo, Body Battery je pao, a stres je porastao, pa ti je ovo najvažniji obrazac. Podaci ne pokazuju uzrok.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\n2. Porast stresa uz blagi pad HRV-a može biti koherentan jer stres raste dok signali oporavka slabe. HRV promjena je mala i ne smije se tumačiti kao značajan pad. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe.\n\n3. Ocjena spavanja, koraci i tjelesna masa su nepromijenjeni, pa ti ti signali opisuju samo stabilnost tih mjerenja. Aktivnost nije dostupna u ovom razdoblju, a posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+        "followUpId": null,
         "rendering": {
           "modelParagraphs": 3,
           "validatedParagraphs": 3,
           "displayedParagraphs": 3,
           "omittedParagraphs": 0,
-          "actionItems": 1,
+          "actionItems": 0,
           "requiredActionItems": 0
         },
         "answerStatus": "complete",
@@ -560,8 +765,8 @@
         "completion": "ai_assisted",
         "conversationContext": {
           "period": {
-            "from": "2020-01-17",
-            "to": "2020-02-15"
+            "from": "2020-01-20",
+            "to": "2020-02-18"
           },
           "topics": [
             "hrv",
@@ -577,30 +782,35 @@
           "conclusions": [
             {
               "kind": "HYPOTHESIS",
-              "text": "Najjača promjena je pad Body Battery i sna zajedno s porastom fiziološkog stresa u drugoj polovici perioda: kraće spavanje i niži Body Battery idu zajedno s višim stresom, što može upućivati na veće opterećenje oporavka, iako ostali signali nisu jednako izraženi. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+              "text": "Kraće spavanje i niža Body Battery u drugom dijelu razdoblja uz viši fiziološki stres mogu zajedno ukazivati na slabiji oporavak. Spavanje se skratilo, Body Battery je pao, a stres je porastao, pa ti je ovo najvažniji obrazac. Podaci ne pokazuju uzrok.",
               "evidenceIds": [
-                "bodyBattery:trend",
                 "sleepDurationMin:trend",
+                "bodyBattery:trend",
                 "stressScore:trend"
               ]
             },
             {
               "kind": "HYPOTHESIS",
-              "text": "Kvaliteta sna i broj koraka ostali su stabilni, pa promjena izgleda usmjerena više na trajanje sna i dnevnu napetost nego na aktivnost. Aktivnost nije dostupna za ovaj period, pa se ne može procijeniti njezin udio.",
+              "text": "Porast stresa uz blagi pad HRV-a može biti koherentan jer stres raste dok signali oporavka slabe. HRV promjena je mala i ne smije se tumačiti kao značajan pad. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe.",
+              "evidenceIds": [
+                "hrv:trend",
+                "restingHr:trend",
+                "stressScore:trend"
+              ]
+            },
+            {
+              "kind": "UNKNOWN",
+              "text": "Ocjena spavanja, koraci i tjelesna masa su nepromijenjeni, pa ti ti signali opisuju samo stabilnost tih mjerenja. Aktivnost nije dostupna u ovom razdoblju, a posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
               "evidenceIds": [
                 "sleepScore:trend",
                 "steps:trend",
-                "activity:fact"
+                "activity:fact",
+                "freshness"
               ]
             }
           ],
-          "offeredActionIds": ["sleep_experiment"],
-          "followUps": [
-            {
-              "id": "felt_wellbeing",
-              "status": "asked"
-            }
-          ]
+          "offeredActionIds": [],
+          "followUps": []
         },
         "mode": "ai_selected",
         "ai": {
@@ -614,43 +824,39 @@
       }
     },
     {
-      "question": "Zašto misliš da su mi Body Battery i trajanje sna pali, a stres porastao? Koja su najvjerojatnija objašnjenja na temelju podataka koje imaš?",
-      "answer": "Najjače se mijenjaju kraće trajanje sna i niži Body Battery, dok fiziološki stres raste u novijem dijelu razdoblja. Stres raste dok san i Body Battery padaju, pa ta kombinacija može upućivati na veći pritisak na oporavak, ali ne dokazuje uzrok.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nNajvjerojatnije objašnjenje je da kraći san može pridonijeti nižoj energiji i većoj napetosti, no stres može odražavati i druge dnevne pritiske koje podaci ne pokazuju. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Kvaliteta sna i koraci ostali su stabilni, pa promjena nije očita u ukupnoj dnevnoj aktivnosti, a podaci o aktivnosti za ovo razdoblje nisu dostupni.\n\nRaspored spavanja, radno opterećenje i eventualne tjelesne aktivnosti ostaju nepoznati, pa se ne može procijeniti koji čimbenik ima veći udio. Usporedba je unutar istog razdoblja, bez prethodnog razdoblja s dovoljno podataka.\n\nJe li se promijenio tvoj raspored spavanja ili opterećenje na poslu?",
+      "question": "Koji su najvjerojatniji razlozi za te promjene? Razlikuj ono što podaci pokazuju od onoga što samo pretpostavljaš.",
+      "answer": "1. Najjači obrazac je to da su kraće spavanje i niža Body Battery u drugom dijelu razdoblja došli uz viši stres. Oporavak je u tom slučaju mogao biti slabiji, pa kraći san može biti jedan od mogućih razloga. Podaci ne pokazuju uzrok, pa je to pretpostavka, a ne utvrđena činjenica.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\n2. Viši stres uz blagi pad HRV-a može biti koherentan, jer bi stres mogao rasti dok signali oporavka slabe. Pad HRV-a je mali i ne smije se tumačiti kao značajan. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe i ne isključuje dublje opterećenje. Stres mogao bi biti povezan i s promjenama rutine ili opterećenja, što treba provjeriti.\n\nNepoznato je koliko si aktivna bila, jer aktivnost nije dostupna za ovo razdoblje, te kakav je bio raspored i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.\n\nJe li se promijenio tvoj raspored spavanja ili opterećenje na poslu?",
       "period": {
-        "from": "2020-01-17",
-        "to": "2020-02-15",
+        "from": "2020-01-20",
+        "to": "2020-02-18",
         "days": 30
       },
+      "responseSource": "recorded_real",
       "rawSelection": {
         "narrative": [
           {
             "kind": "HYPOTHESIS",
-            "text": "Najjače se mijenjaju kraće trajanje sna i niži Body Battery, dok fiziološki stres raste u novijem dijelu razdoblja. Stres raste dok san i Body Battery padaju, pa ta kombinacija može upućivati na veći pritisak na oporavak, ali ne dokazuje uzrok.",
+            "text": "Najjači obrazac je to da su kraće spavanje i niža Body Battery u drugom dijelu razdoblja došli uz viši stres. Oporavak je u tom slučaju mogao biti slabiji, pa kraći san može biti jedan od mogućih razloga. Podaci ne pokazuju uzrok, pa je to pretpostavka, a ne utvrđena činjenica.",
             "evidenceIds": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend"
             ]
           },
           {
             "kind": "HYPOTHESIS",
-            "text": "Najvjerojatnije objašnjenje je da kraći san može pridonijeti nižoj energiji i većoj napetosti, no stres može odražavati i druge dnevne pritiske koje podaci ne pokazuju. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Kvaliteta sna i koraci ostali su stabilni, pa promjena nije očita u ukupnoj dnevnoj aktivnosti, a podaci o aktivnosti za ovo razdoblje nisu dostupni.",
-            "evidenceIds": [
-              "sleepScore:trend",
-              "steps:trend",
-              "hrv:trend",
-              "activity:fact"
-            ]
+            "text": "Viši stres uz blagi pad HRV-a može biti koherentan, jer bi stres mogao rasti dok signali oporavka slabe. Pad HRV-a je mali i ne smije se tumačiti kao značajan. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe i ne isključuje dublje opterećenje. Stres mogao bi biti povezan i s promjenama rutine ili opterećenja, što treba provjeriti.",
+            "evidenceIds": ["hrv:trend", "restingHr:trend", "stressScore:trend"]
           },
           {
             "kind": "UNKNOWN",
-            "text": "Raspored spavanja, radno opterećenje i eventualne tjelesne aktivnosti ostaju nepoznati, pa se ne može procijeniti koji čimbenik ima veći udio. Usporedba je unutar istog razdoblja, bez prethodnog razdoblja s dovoljno podataka.",
-            "evidenceIds": ["cause"]
+            "text": "Nepoznato je koliko si aktivna bila, jer aktivnost nije dostupna za ovo razdoblje, te kakav je bio raspored i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+            "evidenceIds": ["activity:fact", "freshness"]
           }
         ],
         "observationIds": [
-          "bodyBattery:trend",
           "sleepDurationMin:trend",
+          "bodyBattery:trend",
           "stressScore:trend"
         ],
         "hypothesisIds": [],
@@ -658,44 +864,47 @@
         "followUpId": "routine"
       },
       "reply": {
-        "headline": "Vaši nedavni signali u kontekstu",
+        "task": {
+          "intent": "contributors",
+          "status": "complete",
+          "issues": [],
+          "requestedItems": 0,
+          "patterns": 2,
+          "actionItems": 0
+        },
+        "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
         "period": {
-          "from": "2020-01-17",
-          "to": "2020-02-15",
+          "from": "2020-01-20",
+          "to": "2020-02-18",
           "days": 30
         },
-        "today": "2020-02-15",
+        "today": "2020-02-18",
         "timezone": "Europe/Zagreb",
-        "confidence": "moderate",
+        "confidence": "limited",
         "latestWearableDate": "2020-02-15",
         "latestImportedDate": "2020-02-15",
         "blocks": [
           {
             "id": "conversation:0",
             "kind": "HYPOTHESIS",
-            "text": "Najjače se mijenjaju kraće trajanje sna i niži Body Battery, dok fiziološki stres raste u novijem dijelu razdoblja. Stres raste dok san i Body Battery padaju, pa ta kombinacija može upućivati na veći pritisak na oporavak, ali ne dokazuje uzrok.",
+            "text": "Najjači obrazac je to da su kraće spavanje i niža Body Battery u drugom dijelu razdoblja došli uz viši stres. Oporavak je u tom slučaju mogao biti slabiji, pa kraći san može biti jedan od mogućih razloga. Podaci ne pokazuju uzrok, pa je to pretpostavka, a ne utvrđena činjenica.",
             "supports": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend"
             ]
           },
           {
             "id": "conversation:1",
             "kind": "HYPOTHESIS",
-            "text": "Najvjerojatnije objašnjenje je da kraći san može pridonijeti nižoj energiji i većoj napetosti, no stres može odražavati i druge dnevne pritiske koje podaci ne pokazuju. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Kvaliteta sna i koraci ostali su stabilni, pa promjena nije očita u ukupnoj dnevnoj aktivnosti, a podaci o aktivnosti za ovo razdoblje nisu dostupni.",
-            "supports": [
-              "sleepScore:trend",
-              "steps:trend",
-              "hrv:trend",
-              "activity:fact"
-            ]
+            "text": "Viši stres uz blagi pad HRV-a može biti koherentan, jer bi stres mogao rasti dok signali oporavka slabe. Pad HRV-a je mali i ne smije se tumačiti kao značajan. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe i ne isključuje dublje opterećenje. Stres mogao bi biti povezan i s promjenama rutine ili opterećenja, što treba provjeriti.",
+            "supports": ["hrv:trend", "restingHr:trend", "stressScore:trend"]
           },
           {
             "id": "conversation:2",
             "kind": "UNKNOWN",
-            "text": "Raspored spavanja, radno opterećenje i eventualne tjelesne aktivnosti ostaju nepoznati, pa se ne može procijeniti koji čimbenik ima veći udio. Usporedba je unutar istog razdoblja, bez prethodnog razdoblja s dovoljno podataka.",
-            "supports": ["cause"]
+            "text": "Nepoznato je koliko si aktivna bila, jer aktivnost nije dostupna za ovo razdoblje, te kakav je bio raspored i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+            "supports": ["activity:fact", "freshness"]
           },
           {
             "id": "stressScore:fact",
@@ -703,9 +912,6 @@
             "signal": "stressScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -735,10 +941,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress: mean 37.5 /100 across 30/30 days (2020-01-17–2020-02-15); latest 50 /100 on 2020-02-15."
+            "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
           },
           {
             "id": "stressScore:trend",
@@ -746,9 +952,6 @@
             "signal": "stressScore",
             "supports": ["stressScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -778,10 +981,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress rose: mean 50 /100 (15 samples, 2020-02-01–2020-02-15) vs 25 (15 samples, 2020-01-17–2020-01-31); difference 25 /100. Not a significance test or cause."
+            "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
           },
           {
             "id": "bodyBattery:fact",
@@ -789,9 +992,6 @@
             "signal": "bodyBattery",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -821,10 +1021,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery: mean 60 /100 across 30/30 days (2020-01-17–2020-02-15); latest 45 /100 on 2020-02-15."
+            "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
           },
           {
             "id": "bodyBattery:trend",
@@ -832,9 +1032,6 @@
             "signal": "bodyBattery",
             "supports": ["bodyBattery:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -864,10 +1061,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery fell: mean 45 /100 (15 samples, 2020-02-01–2020-02-15) vs 75 (15 samples, 2020-01-17–2020-01-31); difference -30 /100. Not a significance test or cause."
+            "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
           },
           {
             "id": "sleepDurationMin:fact",
@@ -875,9 +1072,6 @@
             "signal": "sleepDurationMin",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -907,11 +1101,11 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration: mean 405 min across 30/30 days (2020-01-17–2020-02-15); latest 360 min on 2020-02-15."
+            "text": "Sleep duration: mean 400 min across 27/30 days (2020-01-20–2020-02-18); latest 360 min on 2020-02-15."
           },
           {
             "id": "sleepDurationMin:trend",
@@ -919,9 +1113,6 @@
             "signal": "sleepDurationMin",
             "supports": ["sleepDurationMin:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -951,185 +1142,11 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration fell: mean 360 min (15 samples, 2020-02-01–2020-02-15) vs 450 (15 samples, 2020-01-17–2020-01-31); difference -90 min. Not a significance test or cause."
-          },
-          {
-            "id": "sleepScore:fact",
-            "kind": "FACT",
-            "signal": "sleepScore",
-            "supports": [],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85,
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
-            ],
-            "text": "Sleep score: mean 85 /100 across 30/30 days (2020-01-17–2020-02-15); latest 85 /100 on 2020-02-15."
-          },
-          {
-            "id": "sleepScore:trend",
-            "kind": "TREND",
-            "signal": "sleepScore",
-            "supports": ["sleepScore:fact"],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85,
-              85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
-            ],
-            "text": "Sleep score was unchanged: mean 85 /100 (15 samples, 2020-02-01–2020-02-15) vs 85 (15 samples, 2020-01-17–2020-01-31); difference 0 /100. Not a significance test or cause."
-          },
-          {
-            "id": "steps:fact",
-            "kind": "FACT",
-            "signal": "steps",
-            "supports": [],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000
-            ],
-            "text": "Steps: mean 8000 steps across 30/30 days (2020-01-17–2020-02-15); latest 8000 steps on 2020-02-15."
-          },
-          {
-            "id": "steps:trend",
-            "kind": "TREND",
-            "signal": "steps",
-            "supports": ["steps:fact"],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
-              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000
-            ],
-            "text": "Steps was unchanged: mean 8000 steps (15 samples, 2020-02-01–2020-02-15) vs 8000 (15 samples, 2020-01-17–2020-01-31); difference 0 steps. Not a significance test or cause."
+            "text": "Sleep duration fell: mean 360 min (12 samples, 2020-02-04–2020-02-18) vs 432 (15 samples, 2020-01-20–2020-02-03); difference -72 min. Not a significance test or cause."
           },
           {
             "id": "hrv:fact",
@@ -1137,9 +1154,6 @@
             "signal": "hrv",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1169,10 +1183,10 @@
               "2020-02-15"
             ],
             "values": [
-              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59,
-              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
             ],
-            "text": "Stored daily HRV: mean 59.5 ms across 30/30 days (2020-01-17–2020-02-15); latest 59 ms on 2020-02-15."
+            "text": "Stored daily HRV: mean 59.44 ms across 27/30 days (2020-01-20–2020-02-18); latest 59 ms on 2020-02-15."
           },
           {
             "id": "hrv:trend",
@@ -1180,9 +1194,6 @@
             "signal": "hrv",
             "supports": ["hrv:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1212,18 +1223,160 @@
               "2020-02-15"
             ],
             "values": [
-              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59,
-              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
             ],
-            "text": "Stored daily HRV fell: mean 59 ms (15 samples, 2020-02-01–2020-02-15) vs 60 (15 samples, 2020-01-17–2020-01-31); difference -1 ms. Small descriptive HRV change; do not label it a meaningful recovery decline. Not a significance test or cause."
+            "text": "Stored daily HRV fell: mean 59 ms (12 samples, 2020-02-04–2020-02-18) vs 59.8 (15 samples, 2020-01-20–2020-02-03); difference -0.8 ms. Small descriptive HRV change; do not label it a meaningful recovery decline. Not a significance test or cause."
+          },
+          {
+            "id": "restingHr:fact",
+            "kind": "FACT",
+            "signal": "restingHr",
+            "supports": [],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
+            ],
+            "text": "Resting HR: mean 55 bpm across 27/30 days (2020-01-20–2020-02-18); latest 55 bpm on 2020-02-15."
+          },
+          {
+            "id": "restingHr:trend",
+            "kind": "TREND",
+            "signal": "restingHr",
+            "supports": ["restingHr:fact"],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
+              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
+            ],
+            "text": "Resting HR was unchanged: mean 55 bpm (12 samples, 2020-02-04–2020-02-18) vs 55 (15 samples, 2020-01-20–2020-02-03); difference 0 bpm. Not a significance test or cause."
           },
           {
             "id": "activity:fact",
             "kind": "FACT",
             "supports": [],
-            "dates": ["2020-01-17", "2020-02-15"],
+            "dates": ["2020-01-20", "2020-02-18"],
             "values": [0, 0],
             "text": "Activity history is not available in LoadIQ for this period. The current Personal API health sync does not ingest activities. This is not evidence of inactivity."
+          },
+          {
+            "id": "freshness",
+            "kind": "UNKNOWN",
+            "supports": [],
+            "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+          },
+          {
+            "id": "hrv:stale",
+            "kind": "UNKNOWN",
+            "signal": "hrv",
+            "supports": [],
+            "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "restingHr:stale",
+            "kind": "UNKNOWN",
+            "signal": "restingHr",
+            "supports": [],
+            "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepDurationMin:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepDurationMin",
+            "supports": [],
+            "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepScore",
+            "supports": [],
+            "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "stressScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "stressScore",
+            "supports": [],
+            "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "bodyBattery:stale",
+            "kind": "UNKNOWN",
+            "signal": "bodyBattery",
+            "supports": [],
+            "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "steps:stale",
+            "kind": "UNKNOWN",
+            "signal": "steps",
+            "supports": [],
+            "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "weightKg:stale",
+            "kind": "UNKNOWN",
+            "signal": "weightKg",
+            "supports": [],
+            "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
             "id": "partial_today",
@@ -1245,7 +1398,7 @@
           }
         ],
         "followUp": "Je li se promijenio tvoj raspored spavanja ili opterećenje na poslu?",
-        "answer": "Najjače se mijenjaju kraće trajanje sna i niži Body Battery, dok fiziološki stres raste u novijem dijelu razdoblja. Stres raste dok san i Body Battery padaju, pa ta kombinacija može upućivati na veći pritisak na oporavak, ali ne dokazuje uzrok.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nNajvjerojatnije objašnjenje je da kraći san može pridonijeti nižoj energiji i većoj napetosti, no stres može odražavati i druge dnevne pritiske koje podaci ne pokazuju. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Kvaliteta sna i koraci ostali su stabilni, pa promjena nije očita u ukupnoj dnevnoj aktivnosti, a podaci o aktivnosti za ovo razdoblje nisu dostupni.\n\nRaspored spavanja, radno opterećenje i eventualne tjelesne aktivnosti ostaju nepoznati, pa se ne može procijeniti koji čimbenik ima veći udio. Usporedba je unutar istog razdoblja, bez prethodnog razdoblja s dovoljno podataka.\n\nJe li se promijenio tvoj raspored spavanja ili opterećenje na poslu?",
+        "answer": "1. Najjači obrazac je to da su kraće spavanje i niža Body Battery u drugom dijelu razdoblja došli uz viši stres. Oporavak je u tom slučaju mogao biti slabiji, pa kraći san može biti jedan od mogućih razloga. Podaci ne pokazuju uzrok, pa je to pretpostavka, a ne utvrđena činjenica.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\n2. Viši stres uz blagi pad HRV-a može biti koherentan, jer bi stres mogao rasti dok signali oporavka slabe. Pad HRV-a je mali i ne smije se tumačiti kao značajan. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe i ne isključuje dublje opterećenje. Stres mogao bi biti povezan i s promjenama rutine ili opterećenja, što treba provjeriti.\n\nNepoznato je koliko si aktivna bila, jer aktivnost nije dostupna za ovo razdoblje, te kakav je bio raspored i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.\n\nJe li se promijenio tvoj raspored spavanja ili opterećenje na poslu?",
         "followUpId": "routine",
         "rendering": {
           "modelParagraphs": 3,
@@ -1260,48 +1413,47 @@
         "completion": "ai_assisted",
         "conversationContext": {
           "period": {
-            "from": "2020-01-17",
-            "to": "2020-02-15"
+            "from": "2020-01-20",
+            "to": "2020-02-18"
           },
           "topics": [
+            "hrv",
+            "restingHr",
             "sleepDurationMin",
             "sleepScore",
             "stressScore",
-            "bodyBattery"
+            "bodyBattery",
+            "steps",
+            "weightKg"
           ],
           "reportedCircumstances": [],
           "conclusions": [
             {
               "kind": "HYPOTHESIS",
-              "text": "Najjače se mijenjaju kraće trajanje sna i niži Body Battery, dok fiziološki stres raste u novijem dijelu razdoblja. Stres raste dok san i Body Battery padaju, pa ta kombinacija može upućivati na veći pritisak na oporavak, ali ne dokazuje uzrok.",
+              "text": "Najjači obrazac je to da su kraće spavanje i niža Body Battery u drugom dijelu razdoblja došli uz viši stres. Oporavak je u tom slučaju mogao biti slabiji, pa kraći san može biti jedan od mogućih razloga. Podaci ne pokazuju uzrok, pa je to pretpostavka, a ne utvrđena činjenica.",
               "evidenceIds": [
-                "bodyBattery:trend",
                 "sleepDurationMin:trend",
+                "bodyBattery:trend",
                 "stressScore:trend"
               ]
             },
             {
               "kind": "HYPOTHESIS",
-              "text": "Najvjerojatnije objašnjenje je da kraći san može pridonijeti nižoj energiji i većoj napetosti, no stres može odražavati i druge dnevne pritiske koje podaci ne pokazuju. Stabilni HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Kvaliteta sna i koraci ostali su stabilni, pa promjena nije očita u ukupnoj dnevnoj aktivnosti, a podaci o aktivnosti za ovo razdoblje nisu dostupni.",
+              "text": "Viši stres uz blagi pad HRV-a može biti koherentan, jer bi stres mogao rasti dok signali oporavka slabe. Pad HRV-a je mali i ne smije se tumačiti kao značajan. Puls u mirovanju se nije promijenio, pa on opisuje samo sebe i ne isključuje dublje opterećenje. Stres mogao bi biti povezan i s promjenama rutine ili opterećenja, što treba provjeriti.",
               "evidenceIds": [
-                "sleepScore:trend",
-                "steps:trend",
                 "hrv:trend",
-                "activity:fact"
+                "restingHr:trend",
+                "stressScore:trend"
               ]
             },
             {
               "kind": "UNKNOWN",
-              "text": "Raspored spavanja, radno opterećenje i eventualne tjelesne aktivnosti ostaju nepoznati, pa se ne može procijeniti koji čimbenik ima veći udio. Usporedba je unutar istog razdoblja, bez prethodnog razdoblja s dovoljno podataka.",
-              "evidenceIds": ["cause"]
+              "text": "Nepoznato je koliko si aktivna bila, jer aktivnost nije dostupna za ovo razdoblje, te kakav je bio raspored i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa trenutni oporavak ostaje nepoznat.",
+              "evidenceIds": ["activity:fact", "freshness"]
             }
           ],
-          "offeredActionIds": ["sleep_experiment"],
+          "offeredActionIds": [],
           "followUps": [
-            {
-              "id": "felt_wellbeing",
-              "status": "asked"
-            },
             {
               "id": "routine",
               "status": "asked"
@@ -1320,79 +1472,169 @@
       }
     },
     {
-      "question": "Zadnjih tjedana imao sam dosta posla, nekoliko puta sam se penjao i kasnije išao spavati. Garmin možda nije zabilježio sve aktivnosti. Mijenja li to tvoju procjenu i što bi sada preporučio?",
-      "answer": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nPokušaj tjedan dana držati dosljedno vrijeme buđenja i ostaviti dovoljno vremena u krevetu, bez mijenjanja svih navika odjednom. Usporedi sljedeći tjedan s ovim razdobljem po trajanju sna, Body Battery i tome koliko se ujutro osjećaš odmorno. Ako se osjećaš iscrpljeno, zamijeni zahtjevan trening lakšim danom.\n\nKoliko je prijavljena aktivnost bila zahtjevna i kako si se osjećao nakon nje?",
+      "question": "Bavim se penjanjem i planinarenjem, ali ne znam jesu li sve moje aktivnosti dostupne LoadIQ-u. Kako ta informacija utječe na tvoje zaključke? Nemoj pretpostaviti koliko sam trenirao.",
+      "answer": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nPodaci o aktivnostima u LoadIQ-u nisu potpuni. Garmin Personal zdravstveni sync ne uvozi treninge; odsutnost zapisa ne znači da se nisi kretao.\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nZbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.\n\nTrenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.\n\nJe li bilo nezabilježene aktivnosti i koliko je bila zahtjevna?",
       "period": {
-        "from": "2020-01-17",
-        "to": "2020-02-15",
+        "from": "2020-01-20",
+        "to": "2020-02-18",
         "days": 30
       },
+      "responseSource": "recorded_real",
       "rawSelection": {
         "narrative": [
           {
-            "kind": "HYPOTHESIS",
-            "text": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.",
-            "evidenceIds": [
-              "bodyBattery:trend",
-              "sleepDurationMin:trend",
-              "stressScore:trend",
-              "report:reported_workload",
-              "report:reported_late_sleep"
-            ]
+            "kind": "UNKNOWN",
+            "text": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.",
+            "evidenceIds": ["report:reported_activity_context", "activity:fact"]
           },
           {
-            "kind": "ACTION",
-            "text": "Pokušaj tjedan dana držati dosljedno vrijeme buđenja i ostaviti dovoljno vremena u krevetu, bez mijenjanja svih navika odjednom. Usporedi sljedeći tjedan s ovim razdobljem po trajanju sna, Body Battery i tome koliko se ujutro osjećaš odmorno. Ako se osjećaš iscrpljeno, zamijeni zahtjevan trening lakšim danom.",
-            "evidenceIds": [
-              "sleep_experiment",
-              "recovery_experiment",
-              "sleepDurationMin:trend"
-            ]
+            "kind": "HYPOTHESIS",
+            "text": "Zbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.",
+            "evidenceIds": ["stressScore:trend", "bodyBattery:trend", "cause"]
+          },
+          {
+            "kind": "UNKNOWN",
+            "text": "Trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.",
+            "evidenceIds": ["freshness", "activity:fact"]
           }
         ],
         "observationIds": [
-          "sleepDurationMin:trend",
-          "bodyBattery:trend",
-          "stressScore:trend"
+          "activity:fact",
+          "stressScore:trend",
+          "bodyBattery:trend"
         ],
         "hypothesisIds": [],
-        "actionIds": ["sleep_experiment", "recovery_experiment"],
+        "actionIds": [],
         "followUpId": "activity"
       },
       "reply": {
-        "headline": "Vaši nedavni signali u kontekstu",
+        "task": {
+          "intent": "personal_context",
+          "status": "complete",
+          "issues": [],
+          "requestedItems": 0,
+          "patterns": 1,
+          "actionItems": 0
+        },
+        "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
         "period": {
-          "from": "2020-01-17",
-          "to": "2020-02-15",
+          "from": "2020-01-20",
+          "to": "2020-02-18",
           "days": 30
         },
-        "today": "2020-02-15",
+        "today": "2020-02-18",
         "timezone": "Europe/Zagreb",
-        "confidence": "moderate",
+        "confidence": "limited",
         "latestWearableDate": "2020-02-15",
         "latestImportedDate": "2020-02-15",
         "blocks": [
           {
             "id": "conversation:0",
-            "kind": "HYPOTHESIS",
-            "text": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.",
-            "supports": [
-              "bodyBattery:trend",
-              "sleepDurationMin:trend",
-              "stressScore:trend",
-              "report:reported_workload",
-              "report:reported_late_sleep"
-            ]
+            "kind": "UNKNOWN",
+            "text": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.",
+            "supports": ["report:reported_activity_context", "activity:fact"]
           },
           {
             "id": "conversation:1",
-            "kind": "ACTION",
-            "text": "Pokušaj tjedan dana držati dosljedno vrijeme buđenja i ostaviti dovoljno vremena u krevetu, bez mijenjanja svih navika odjednom. Usporedi sljedeći tjedan s ovim razdobljem po trajanju sna, Body Battery i tome koliko se ujutro osjećaš odmorno. Ako se osjećaš iscrpljeno, zamijeni zahtjevan trening lakšim danom.",
-            "supports": [
-              "sleep_experiment",
-              "recovery_experiment",
-              "sleepDurationMin:trend"
-            ]
+            "kind": "HYPOTHESIS",
+            "text": "Zbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.",
+            "supports": ["stressScore:trend", "bodyBattery:trend", "cause"]
+          },
+          {
+            "id": "conversation:2",
+            "kind": "UNKNOWN",
+            "text": "Trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.",
+            "supports": ["freshness", "activity:fact"]
+          },
+          {
+            "id": "steps:fact",
+            "kind": "FACT",
+            "signal": "steps",
+            "supports": [],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
+              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
+              8000, 8000, 8000, 8000, 8000
+            ],
+            "text": "Steps: mean 8000 steps across 27/30 days (2020-01-20–2020-02-18); latest 8000 steps on 2020-02-15."
+          },
+          {
+            "id": "steps:trend",
+            "kind": "TREND",
+            "signal": "steps",
+            "supports": ["steps:fact"],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
+              8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000,
+              8000, 8000, 8000, 8000, 8000
+            ],
+            "text": "Steps was unchanged: mean 8000 steps (12 samples, 2020-02-04–2020-02-18) vs 8000 (15 samples, 2020-01-20–2020-02-03); difference 0 steps. Not a significance test or cause."
+          },
+          {
+            "id": "activity:fact",
+            "kind": "FACT",
+            "supports": [],
+            "dates": ["2020-01-20", "2020-02-18"],
+            "values": [0, 0],
+            "text": "Activity history is not available in LoadIQ for this period. The current Personal API health sync does not ingest activities. This is not evidence of inactivity."
           },
           {
             "id": "stressScore:fact",
@@ -1400,9 +1642,6 @@
             "signal": "stressScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1432,10 +1671,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress: mean 37.5 /100 across 30/30 days (2020-01-17–2020-02-15); latest 50 /100 on 2020-02-15."
+            "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
           },
           {
             "id": "stressScore:trend",
@@ -1443,9 +1682,6 @@
             "signal": "stressScore",
             "supports": ["stressScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1475,10 +1711,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress rose: mean 50 /100 (15 samples, 2020-02-01–2020-02-15) vs 25 (15 samples, 2020-01-17–2020-01-31); difference 25 /100. Not a significance test or cause."
+            "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
           },
           {
             "id": "bodyBattery:fact",
@@ -1486,9 +1722,6 @@
             "signal": "bodyBattery",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1518,10 +1751,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery: mean 60 /100 across 30/30 days (2020-01-17–2020-02-15); latest 45 /100 on 2020-02-15."
+            "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
           },
           {
             "id": "bodyBattery:trend",
@@ -1529,9 +1762,6 @@
             "signal": "bodyBattery",
             "supports": ["bodyBattery:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1561,110 +1791,72 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery fell: mean 45 /100 (15 samples, 2020-02-01–2020-02-15) vs 75 (15 samples, 2020-01-17–2020-01-31); difference -30 /100. Not a significance test or cause."
+            "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
           },
           {
-            "id": "sleepDurationMin:fact",
-            "kind": "FACT",
+            "id": "freshness",
+            "kind": "UNKNOWN",
+            "supports": [],
+            "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+          },
+          {
+            "id": "hrv:stale",
+            "kind": "UNKNOWN",
+            "signal": "hrv",
+            "supports": [],
+            "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "restingHr:stale",
+            "kind": "UNKNOWN",
+            "signal": "restingHr",
+            "supports": [],
+            "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepDurationMin:stale",
+            "kind": "UNKNOWN",
             "signal": "sleepDurationMin",
             "supports": [],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
-            ],
-            "text": "Sleep duration: mean 405 min across 30/30 days (2020-01-17–2020-02-15); latest 360 min on 2020-02-15."
+            "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
-            "id": "sleepDurationMin:trend",
-            "kind": "TREND",
-            "signal": "sleepDurationMin",
-            "supports": ["sleepDurationMin:fact"],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
-            ],
-            "text": "Sleep duration fell: mean 360 min (15 samples, 2020-02-01–2020-02-15) vs 450 (15 samples, 2020-01-17–2020-01-31); difference -90 min. Not a significance test or cause."
+            "id": "sleepScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepScore",
+            "supports": [],
+            "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
-            "id": "sleep_experiment",
-            "kind": "ACTION",
-            "supports": ["sleepDurationMin:trend"],
-            "text": "Keep a consistent wake-up time and protect enough time in bed this week, rather than trying to change every routine. Compare next week’s sleep duration and score with this period, and note whether waking feels easier. Schedule timing is not measured here."
+            "id": "stressScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "stressScore",
+            "supports": [],
+            "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
-            "id": "recovery_experiment",
-            "kind": "ACTION",
-            "supports": ["bodyBattery:trend"],
-            "text": "If you also feel under-recovered, replace a demanding session with an easier day rather than pushing through. Reassess how you feel alongside subsequent HRV and resting HR relative to your own recent values before increasing intensity. This is conditional, not evidence that you trained hard."
+            "id": "bodyBattery:stale",
+            "kind": "UNKNOWN",
+            "signal": "bodyBattery",
+            "supports": [],
+            "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "steps:stale",
+            "kind": "UNKNOWN",
+            "signal": "steps",
+            "supports": [],
+            "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "weightKg:stale",
+            "kind": "UNKNOWN",
+            "signal": "weightKg",
+            "supports": [],
+            "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
             "id": "partial_today",
@@ -1685,39 +1877,21 @@
             "text": "Existing UTC calendar buckets are preserved. Personal API HRV is the nightly average; legacy FIT HRV may use a fallback statistic. Body Battery is a stored daily value, not a daily mean. Row-level sources cannot establish exact per-field provenance, so mixed-source trends need caution."
           },
           {
-            "id": "report:reported_workload",
+            "id": "report:reported_activity_context",
             "kind": "UNKNOWN",
             "supports": [],
-            "text": "You report a heavier workload. This is self-reported context, not proof of the source of physiological stress."
-          },
-          {
-            "id": "report:reported_late_sleep",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report going to bed later. Timing is self-reported, not a measured sleep schedule."
-          },
-          {
-            "id": "report:reported_untracked_activity",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report climbing or other unrecorded activity. Do not invent sessions, duration or intensity."
-          },
-          {
-            "id": "untracked",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You reported activity that is not a measured workout here. Preserve any timing you supplied as a self-report; its duration, intensity and link to wearable changes have not been established."
+            "text": "You report climbing/hiking as activities you do. This is context only: dates, sessions, volume, intensity and Garmin coverage are unknown."
           }
         ],
-        "followUp": "Koliko je prijavljena aktivnost bila zahtjevna i kako si se osjećao nakon nje?",
-        "answer": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nFiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\nPokušaj tjedan dana držati dosljedno vrijeme buđenja i ostaviti dovoljno vremena u krevetu, bez mijenjanja svih navika odjednom. Usporedi sljedeći tjedan s ovim razdobljem po trajanju sna, Body Battery i tome koliko se ujutro osjećaš odmorno. Ako se osjećaš iscrpljeno, zamijeni zahtjevan trening lakšim danom.\n\nKoliko je prijavljena aktivnost bila zahtjevna i kako si se osjećao nakon nje?",
+        "followUp": "Je li bilo nezabilježene aktivnosti i koliko je bila zahtjevna?",
+        "answer": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nPodaci o aktivnostima u LoadIQ-u nisu potpuni. Garmin Personal zdravstveni sync ne uvozi treninge; odsutnost zapisa ne znači da se nisi kretao.\n\nFiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nZbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.\n\nTrenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.\n\nJe li bilo nezabilježene aktivnosti i koliko je bila zahtjevna?",
         "followUpId": "activity",
         "rendering": {
-          "modelParagraphs": 2,
-          "validatedParagraphs": 2,
-          "displayedParagraphs": 2,
+          "modelParagraphs": 3,
+          "validatedParagraphs": 3,
+          "displayedParagraphs": 3,
           "omittedParagraphs": 0,
-          "actionItems": 1,
+          "actionItems": 0,
           "requiredActionItems": 0
         },
         "answerStatus": "complete",
@@ -1725,45 +1899,36 @@
         "completion": "ai_assisted",
         "conversationContext": {
           "period": {
-            "from": "2020-01-17",
-            "to": "2020-02-15"
+            "from": "2020-01-20",
+            "to": "2020-02-18"
           },
-          "topics": [
-            "sleepDurationMin",
-            "sleepScore",
-            "stressScore",
-            "bodyBattery",
-            "steps"
-          ],
-          "reportedCircumstances": [
-            "reported_work_stress",
-            "reported_untracked_activity",
-            "reported_climbing",
-            "reported_workload",
-            "reported_late_sleep"
-          ],
+          "topics": ["steps"],
+          "reportedCircumstances": ["reported_activity_context"],
           "conclusions": [
             {
-              "kind": "HYPOTHESIS",
-              "text": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.",
+              "kind": "UNKNOWN",
+              "text": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.",
               "evidenceIds": [
-                "bodyBattery:trend",
-                "sleepDurationMin:trend",
-                "stressScore:trend",
-                "report:reported_workload",
-                "report:reported_late_sleep"
+                "report:reported_activity_context",
+                "activity:fact"
               ]
-            }
-          ],
-          "offeredActionIds": ["sleep_experiment", "recovery_experiment"],
-          "followUps": [
-            {
-              "id": "felt_wellbeing",
-              "status": "asked"
             },
             {
+              "kind": "HYPOTHESIS",
+              "text": "Zbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.",
+              "evidenceIds": ["stressScore:trend", "bodyBattery:trend", "cause"]
+            },
+            {
+              "kind": "UNKNOWN",
+              "text": "Trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.",
+              "evidenceIds": ["freshness", "activity:fact"]
+            }
+          ],
+          "offeredActionIds": [],
+          "followUps": [
+            {
               "id": "routine",
-              "status": "answered"
+              "status": "asked"
             },
             {
               "id": "activity",
@@ -1783,43 +1948,40 @@
       }
     },
     {
-      "question": "Predloži mi tri konkretne promjene koje bih mogao napraviti tijekom sljedećih sedam dana. Posloži ih po važnosti i objasni kako ćemo znati jesu li pomogle.",
-      "answer": "Za sljedećih sedam dana, po prioritetu:\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\n1. Najvažnija promjena je zaštititi san, jer se trajanje sna najviše skratilo uz pad Body Batteryja. Pokušaj održavati dosljedno vrijeme buđenja i ranije gašenje ekrana. U sljedećem tjedanu usporedi trajanje sna i Body Battery s ovim razdobljem te osjećaš li se ujutro odmornije.\nRazlog: Trajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\n2. Druga promjena je kratka tiha pauza nakon najintenzivnijeg dijela dana, bez ekrana i obaveza. Ostale rutine neka ostanu slične. Prati fiziološki stres i osjećaj napetosti te usporedi ih s ovim razdobljem, jer stres najjače raste uz kraći san.\nRazlog: Fiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\n3. Ako se tijekom tjedna osjećaš neoporavljeno, zamijeni zahtjevniji dan lakšim umjesto guranja kroz umor. Prije povećanja intenziteta usporedi osjećaj s HRV-om i pulsom u mirovanju. Stabilne vrijednosti tih signala opisuju samo njih i ne isključuju širi pad oporavka.\nRazlog: Body Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).",
+      "question": "Predloži tri konkretne promjene za sljedećih sedam dana, po prioritetu. Za svaku objasni razlog i kako ćemo izmjeriti rezultat.",
+      "answer": "Za sljedećih sedam dana, po prioritetu:\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\n1. Prvi prioritet za sljedećih sedam dana je zaštititi vrijeme za san i držati stalno vrijeme buđenja. Trajanje sna je u drugoj polovici razdoblja kraće, pa je to logično mjesto za početak, iako uzrok nije potvrđen. Nakon tjedna usporedi trajanje i ocjenu sna s ranijim razdobljem i zabilježi koliko se jutros osjećaš odmorno.\nRazlog: Trajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi jutarnju odmorenost; usporedi dostupna nova mjerenja (Trajanje sna, Ocjena sna) s navedenim povijesnim razdobljem.\n\n2. Drugi prioritet je isprobati ponovljivu mirnu pauzu ili večer bez ekrana, uz ostale rutine što sličnije. Fiziološki stres je u drugoj polovici razdoblja viši, a to može imati više uzroka, pa ne zaključuj da je posao jedini izvor. Usporedi stres i san s ranijim razdobljem i zabilježi osjećaj napetosti.\nRazlog: Fiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi osjećaj napetosti; usporedi dostupna nova mjerenja (Fiziološki stres, Trajanje sna) s navedenim povijesnim razdobljem.\n\n3. Treći prioritet, samo ako se osjećaš neoporavljeno, je odabrati lakši dan umjesto zahtjevnog treninga. Body Battery je u drugoj polovici razdoblja niži, ali trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana. Tijekom tjedna bilježi energiju i percipirani napor te usporedi Body Battery s ranijim razdobljem gdje su podaci dostupni.\nRazlog: Body Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi energiju i doživljeni napor; usporedi dostupna nova mjerenja (Body Battery, Puls u mirovanju, HRV) s navedenim povijesnim razdobljem.",
       "period": {
-        "from": "2020-01-17",
-        "to": "2020-02-15",
+        "from": "2020-01-20",
+        "to": "2020-02-18",
         "days": 30
       },
+      "responseSource": "recorded_real",
       "rawSelection": {
         "narrative": [
           {
             "kind": "ACTION",
-            "text": "Najvažnija promjena je zaštititi san, jer se trajanje sna najviše skratilo uz pad Body Batteryja. Pokušaj održavati dosljedno vrijeme buđenja i ranije gašenje ekrana. U sljedećem tjedanu usporedi trajanje sna i Body Battery s ovim razdobljem te osjećaš li se ujutro odmornije.",
-            "evidenceIds": [
-              "sleepDurationMin:trend",
-              "bodyBattery:trend",
-              "sleep_experiment"
-            ]
+            "text": "Prvi prioritet za sljedećih sedam dana je zaštititi vrijeme za san i držati stalno vrijeme buđenja. Trajanje sna je u drugoj polovici razdoblja kraće, pa je to logično mjesto za početak, iako uzrok nije potvrđen. Nakon tjedna usporedi trajanje i ocjenu sna s ranijim razdobljem i zabilježi koliko se jutros osjećaš odmorno.",
+            "evidenceIds": ["sleepDurationMin:trend", "sleep_experiment"]
           },
           {
             "kind": "ACTION",
-            "text": "Druga promjena je kratka tiha pauza nakon najintenzivnijeg dijela dana, bez ekrana i obaveza. Ostale rutine neka ostanu slične. Prati fiziološki stres i osjećaj napetosti te usporedi ih s ovim razdobljem, jer stres najjače raste uz kraći san.",
+            "text": "Drugi prioritet je isprobati ponovljivu mirnu pauzu ili večer bez ekrana, uz ostale rutine što sličnije. Fiziološki stres je u drugoj polovici razdoblja viši, a to može imati više uzroka, pa ne zaključuj da je posao jedini izvor. Usporedi stres i san s ranijim razdobljem i zabilježi osjećaj napetosti.",
             "evidenceIds": ["stressScore:trend", "stress_experiment"]
           },
           {
             "kind": "ACTION",
-            "text": "Ako se tijekom tjedna osjećaš neoporavljeno, zamijeni zahtjevniji dan lakšim umjesto guranja kroz umor. Prije povećanja intenziteta usporedi osjećaj s HRV-om i pulsom u mirovanju. Stabilne vrijednosti tih signala opisuju samo njih i ne isključuju širi pad oporavka.",
+            "text": "Treći prioritet, samo ako se osjećaš neoporavljeno, je odabrati lakši dan umjesto zahtjevnog treninga. Body Battery je u drugoj polovici razdoblja niži, ali trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana. Tijekom tjedna bilježi energiju i percipirani napor te usporedi Body Battery s ranijim razdobljem gdje su podaci dostupni.",
             "evidenceIds": [
+              "bodyBattery:trend",
               "recovery_experiment",
-              "hrv:trend",
-              "restingHr:trend"
+              "freshness"
             ]
           }
         ],
         "observationIds": [
           "sleepDurationMin:trend",
-          "bodyBattery:trend",
-          "stressScore:trend"
+          "stressScore:trend",
+          "bodyBattery:trend"
         ],
         "hypothesisIds": [],
         "actionIds": [
@@ -1830,39 +1992,47 @@
         "followUpId": null
       },
       "reply": {
-        "headline": "Vaši nedavni signali u kontekstu",
+        "task": {
+          "intent": "action_plan",
+          "status": "complete",
+          "issues": [],
+          "requestedItems": 3,
+          "patterns": 3,
+          "actionItems": 3
+        },
+        "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
         "period": {
-          "from": "2020-01-17",
-          "to": "2020-02-15",
+          "from": "2020-01-20",
+          "to": "2020-02-18",
           "days": 30
         },
-        "today": "2020-02-15",
+        "today": "2020-02-18",
         "timezone": "Europe/Zagreb",
-        "confidence": "moderate",
+        "confidence": "limited",
         "latestWearableDate": "2020-02-15",
         "latestImportedDate": "2020-02-15",
         "blocks": [
           {
             "id": "conversation:0",
             "kind": "ACTION",
-            "text": "Najvažnija promjena je zaštititi san, jer se trajanje sna najviše skratilo uz pad Body Batteryja. Pokušaj održavati dosljedno vrijeme buđenja i ranije gašenje ekrana. U sljedećem tjedanu usporedi trajanje sna i Body Battery s ovim razdobljem te osjećaš li se ujutro odmornije.",
-            "supports": [
-              "sleepDurationMin:trend",
-              "bodyBattery:trend",
-              "sleep_experiment"
-            ]
+            "text": "Prvi prioritet za sljedećih sedam dana je zaštititi vrijeme za san i držati stalno vrijeme buđenja. Trajanje sna je u drugoj polovici razdoblja kraće, pa je to logično mjesto za početak, iako uzrok nije potvrđen. Nakon tjedna usporedi trajanje i ocjenu sna s ranijim razdobljem i zabilježi koliko se jutros osjećaš odmorno.",
+            "supports": ["sleepDurationMin:trend", "sleep_experiment"]
           },
           {
             "id": "conversation:1",
             "kind": "ACTION",
-            "text": "Druga promjena je kratka tiha pauza nakon najintenzivnijeg dijela dana, bez ekrana i obaveza. Ostale rutine neka ostanu slične. Prati fiziološki stres i osjećaj napetosti te usporedi ih s ovim razdobljem, jer stres najjače raste uz kraći san.",
+            "text": "Drugi prioritet je isprobati ponovljivu mirnu pauzu ili večer bez ekrana, uz ostale rutine što sličnije. Fiziološki stres je u drugoj polovici razdoblja viši, a to može imati više uzroka, pa ne zaključuj da je posao jedini izvor. Usporedi stres i san s ranijim razdobljem i zabilježi osjećaj napetosti.",
             "supports": ["stressScore:trend", "stress_experiment"]
           },
           {
             "id": "conversation:2",
             "kind": "ACTION",
-            "text": "Ako se tijekom tjedna osjećaš neoporavljeno, zamijeni zahtjevniji dan lakšim umjesto guranja kroz umor. Prije povećanja intenziteta usporedi osjećaj s HRV-om i pulsom u mirovanju. Stabilne vrijednosti tih signala opisuju samo njih i ne isključuju širi pad oporavka.",
-            "supports": ["recovery_experiment", "hrv:trend", "restingHr:trend"]
+            "text": "Treći prioritet, samo ako se osjećaš neoporavljeno, je odabrati lakši dan umjesto zahtjevnog treninga. Body Battery je u drugoj polovici razdoblja niži, ali trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana. Tijekom tjedna bilježi energiju i percipirani napor te usporedi Body Battery s ranijim razdobljem gdje su podaci dostupni.",
+            "supports": [
+              "bodyBattery:trend",
+              "recovery_experiment",
+              "freshness"
+            ]
           },
           {
             "id": "stressScore:fact",
@@ -1870,9 +2040,6 @@
             "signal": "stressScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1902,10 +2069,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress: mean 37.5 /100 across 30/30 days (2020-01-17–2020-02-15); latest 50 /100 on 2020-02-15."
+            "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
           },
           {
             "id": "stressScore:trend",
@@ -1913,9 +2080,6 @@
             "signal": "stressScore",
             "supports": ["stressScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1945,10 +2109,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress rose: mean 50 /100 (15 samples, 2020-02-01–2020-02-15) vs 25 (15 samples, 2020-01-17–2020-01-31); difference 25 /100. Not a significance test or cause."
+            "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
           },
           {
             "id": "bodyBattery:fact",
@@ -1956,9 +2120,6 @@
             "signal": "bodyBattery",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -1988,10 +2149,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery: mean 60 /100 across 30/30 days (2020-01-17–2020-02-15); latest 45 /100 on 2020-02-15."
+            "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
           },
           {
             "id": "bodyBattery:trend",
@@ -1999,9 +2160,6 @@
             "signal": "bodyBattery",
             "supports": ["bodyBattery:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2031,10 +2189,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery fell: mean 45 /100 (15 samples, 2020-02-01–2020-02-15) vs 75 (15 samples, 2020-01-17–2020-01-31); difference -30 /100. Not a significance test or cause."
+            "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
           },
           {
             "id": "sleepDurationMin:fact",
@@ -2042,9 +2200,6 @@
             "signal": "sleepDurationMin",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2074,11 +2229,11 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration: mean 405 min across 30/30 days (2020-01-17–2020-02-15); latest 360 min on 2020-02-15."
+            "text": "Sleep duration: mean 400 min across 27/30 days (2020-01-20–2020-02-18); latest 360 min on 2020-02-15."
           },
           {
             "id": "sleepDurationMin:trend",
@@ -2086,9 +2241,6 @@
             "signal": "sleepDurationMin",
             "supports": ["sleepDurationMin:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2118,201 +2270,109 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration fell: mean 360 min (15 samples, 2020-02-01–2020-02-15) vs 450 (15 samples, 2020-01-17–2020-01-31); difference -90 min. Not a significance test or cause."
+            "text": "Sleep duration fell: mean 360 min (12 samples, 2020-02-04–2020-02-18) vs 432 (15 samples, 2020-01-20–2020-02-03); difference -72 min. Not a significance test or cause."
           },
           {
             "id": "sleep_experiment",
             "kind": "ACTION",
             "supports": ["sleepDurationMin:trend"],
-            "text": "Keep a consistent wake-up time and protect enough time in bed this week, rather than trying to change every routine. Compare next week’s sleep duration and score with this period, and note whether waking feels easier. Schedule timing is not measured here."
+            "basis": "historical_evidence",
+            "evaluation": {
+              "days": 7,
+              "signals": ["sleepDurationMin", "sleepScore"],
+              "subjective": "morning restfulness"
+            },
+            "text": "Conditionally protect time in bed and a consistent wake-up time for the next seven days. Compare subsequent sleep duration/score with the stated historical period and record morning restfulness yourself. This does not assess today’s recovery; schedule timing is unknown."
           },
           {
             "id": "stress_experiment",
             "kind": "ACTION",
             "supports": ["stressScore:trend"],
-            "text": "Choose a repeatable quiet break after the busiest part of your day or a screen-free wind-down before bed. Keep other routines similar and compare next week’s physiological stress and sleep with this period, alongside how tense you feel."
+            "basis": "historical_evidence",
+            "evaluation": {
+              "days": 7,
+              "signals": ["stressScore", "sleepDurationMin"],
+              "subjective": "felt tension"
+            },
+            "text": "Try a repeatable quiet break or screen-free evening wind-down over the next seven days. Keep other routines similar; compare subsequent physiological stress/sleep with the stated historical period and record felt tension. Physiological stress does not establish work stress as a cause."
           },
           {
             "id": "recovery_experiment",
             "kind": "ACTION",
             "supports": ["bodyBattery:trend"],
-            "text": "If you also feel under-recovered, replace a demanding session with an easier day rather than pushing through. Reassess how you feel alongside subsequent HRV and resting HR relative to your own recent values before increasing intensity. This is conditional, not evidence that you trained hard."
+            "basis": "historical_evidence",
+            "evaluation": {
+              "days": 7,
+              "signals": ["bodyBattery", "restingHr", "hrv"],
+              "subjective": "energy and perceived effort"
+            },
+            "text": "Only if you feel under-recovered, choose an easier day instead of a demanding session. Over the next seven days record energy and perceived effort yourself, comparing subsequent Body Battery, HRV and resting HR with the historical period where available. No current readiness, session duration, training volume or causal effect is established."
           },
           {
-            "id": "hrv:fact",
-            "kind": "FACT",
+            "id": "freshness",
+            "kind": "UNKNOWN",
+            "supports": [],
+            "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+          },
+          {
+            "id": "hrv:stale",
+            "kind": "UNKNOWN",
             "signal": "hrv",
             "supports": [],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59,
-              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
-            ],
-            "text": "Stored daily HRV: mean 59.5 ms across 30/30 days (2020-01-17–2020-02-15); latest 59 ms on 2020-02-15."
+            "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
-            "id": "hrv:trend",
-            "kind": "TREND",
-            "signal": "hrv",
-            "supports": ["hrv:fact"],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59,
-              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
-            ],
-            "text": "Stored daily HRV fell: mean 59 ms (15 samples, 2020-02-01–2020-02-15) vs 60 (15 samples, 2020-01-17–2020-01-31); difference -1 ms. Small descriptive HRV change; do not label it a meaningful recovery decline. Not a significance test or cause."
-          },
-          {
-            "id": "restingHr:fact",
-            "kind": "FACT",
+            "id": "restingHr:stale",
+            "kind": "UNKNOWN",
             "signal": "restingHr",
             "supports": [],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
-              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
-            ],
-            "text": "Resting HR: mean 55 bpm across 30/30 days (2020-01-17–2020-02-15); latest 55 bpm on 2020-02-15."
+            "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
-            "id": "restingHr:trend",
-            "kind": "TREND",
-            "signal": "restingHr",
-            "supports": ["restingHr:fact"],
-            "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
-              "2020-01-20",
-              "2020-01-21",
-              "2020-01-22",
-              "2020-01-23",
-              "2020-01-24",
-              "2020-01-25",
-              "2020-01-26",
-              "2020-01-27",
-              "2020-01-28",
-              "2020-01-29",
-              "2020-01-30",
-              "2020-01-31",
-              "2020-02-01",
-              "2020-02-02",
-              "2020-02-03",
-              "2020-02-04",
-              "2020-02-05",
-              "2020-02-06",
-              "2020-02-07",
-              "2020-02-08",
-              "2020-02-09",
-              "2020-02-10",
-              "2020-02-11",
-              "2020-02-12",
-              "2020-02-13",
-              "2020-02-14",
-              "2020-02-15"
-            ],
-            "values": [
-              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55,
-              55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55
-            ],
-            "text": "Resting HR was unchanged: mean 55 bpm (15 samples, 2020-02-01–2020-02-15) vs 55 (15 samples, 2020-01-17–2020-01-31); difference 0 bpm. Not a significance test or cause."
+            "id": "sleepDurationMin:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepDurationMin",
+            "supports": [],
+            "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepScore",
+            "supports": [],
+            "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "stressScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "stressScore",
+            "supports": [],
+            "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "bodyBattery:stale",
+            "kind": "UNKNOWN",
+            "signal": "bodyBattery",
+            "supports": [],
+            "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "steps:stale",
+            "kind": "UNKNOWN",
+            "signal": "steps",
+            "supports": [],
+            "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "weightKg:stale",
+            "kind": "UNKNOWN",
+            "signal": "weightKg",
+            "supports": [],
+            "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
             "id": "partial_today",
@@ -2333,32 +2393,14 @@
             "text": "Existing UTC calendar buckets are preserved. Personal API HRV is the nightly average; legacy FIT HRV may use a fallback statistic. Body Battery is a stored daily value, not a daily mean. Row-level sources cannot establish exact per-field provenance, so mixed-source trends need caution."
           },
           {
-            "id": "report:reported_workload",
+            "id": "report:reported_activity_context",
             "kind": "UNKNOWN",
             "supports": [],
-            "text": "You report a heavier workload. This is self-reported context, not proof of the source of physiological stress."
-          },
-          {
-            "id": "report:reported_late_sleep",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report going to bed later. Timing is self-reported, not a measured sleep schedule."
-          },
-          {
-            "id": "report:reported_untracked_activity",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report climbing or other unrecorded activity. Do not invent sessions, duration or intensity."
-          },
-          {
-            "id": "untracked",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You reported activity that is not a measured workout here. Preserve any timing you supplied as a self-report; its duration, intensity and link to wearable changes have not been established."
+            "text": "You report climbing/hiking as activities you do. This is context only: dates, sessions, volume, intensity and Garmin coverage are unknown."
           }
         ],
         "followUp": null,
-        "answer": "Za sljedećih sedam dana, po prioritetu:\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\n1. Najvažnija promjena je zaštititi san, jer se trajanje sna najviše skratilo uz pad Body Batteryja. Pokušaj održavati dosljedno vrijeme buđenja i ranije gašenje ekrana. U sljedećem tjedanu usporedi trajanje sna i Body Battery s ovim razdobljem te osjećaš li se ujutro odmornije.\nRazlog: Trajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\n2. Druga promjena je kratka tiha pauza nakon najintenzivnijeg dijela dana, bez ekrana i obaveza. Ostale rutine neka ostanu slične. Prati fiziološki stres i osjećaj napetosti te usporedi ih s ovim razdobljem, jer stres najjače raste uz kraći san.\nRazlog: Fiziološki stres: 50 prema 25 /100; promjena +25 /100 (15/15 mjerenja).\n\n3. Ako se tijekom tjedna osjećaš neoporavljeno, zamijeni zahtjevniji dan lakšim umjesto guranja kroz umor. Prije povećanja intenziteta usporedi osjećaj s HRV-om i pulsom u mirovanju. Stabilne vrijednosti tih signala opisuju samo njih i ne isključuju širi pad oporavka.\nRazlog: Body Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).",
+        "answer": "Za sljedećih sedam dana, po prioritetu:\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\n1. Prvi prioritet za sljedećih sedam dana je zaštititi vrijeme za san i držati stalno vrijeme buđenja. Trajanje sna je u drugoj polovici razdoblja kraće, pa je to logično mjesto za početak, iako uzrok nije potvrđen. Nakon tjedna usporedi trajanje i ocjenu sna s ranijim razdobljem i zabilježi koliko se jutros osjećaš odmorno.\nRazlog: Trajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi jutarnju odmorenost; usporedi dostupna nova mjerenja (Trajanje sna, Ocjena sna) s navedenim povijesnim razdobljem.\n\n2. Drugi prioritet je isprobati ponovljivu mirnu pauzu ili večer bez ekrana, uz ostale rutine što sličnije. Fiziološki stres je u drugoj polovici razdoblja viši, a to može imati više uzroka, pa ne zaključuj da je posao jedini izvor. Usporedi stres i san s ranijim razdobljem i zabilježi osjećaj napetosti.\nRazlog: Fiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi osjećaj napetosti; usporedi dostupna nova mjerenja (Fiziološki stres, Trajanje sna) s navedenim povijesnim razdobljem.\n\n3. Treći prioritet, samo ako se osjećaš neoporavljeno, je odabrati lakši dan umjesto zahtjevnog treninga. Body Battery je u drugoj polovici razdoblja niži, ali trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana. Tijekom tjedna bilježi energiju i percipirani napor te usporedi Body Battery s ranijim razdobljem gdje su podaci dostupni.\nRazlog: Body Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi energiju i doživljeni napor; usporedi dostupna nova mjerenja (Body Battery, Puls u mirovanju, HRV) s navedenim povijesnim razdobljem.",
         "followUpId": null,
         "rendering": {
           "modelParagraphs": 3,
@@ -2373,8 +2415,8 @@
         "completion": "ai_assisted",
         "conversationContext": {
           "period": {
-            "from": "2020-01-17",
-            "to": "2020-02-15"
+            "from": "2020-01-20",
+            "to": "2020-02-18"
           },
           "topics": [
             "hrv",
@@ -2386,39 +2428,36 @@
             "steps",
             "weightKg"
           ],
-          "reportedCircumstances": [
-            "reported_work_stress",
-            "reported_untracked_activity",
-            "reported_climbing",
-            "reported_workload",
-            "reported_late_sleep"
-          ],
+          "reportedCircumstances": ["reported_activity_context"],
           "conclusions": [
             {
-              "kind": "HYPOTHESIS",
-              "text": "Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu zajedno objasniti dio promjena, ali ne dokazuju uzrok. Najjače se mijenjaju kraće trajanje sna, niži Body Battery i viši stres, pa kombinacija može upućivati na veći pritisak na oporavak. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka. Neprijavljena aktivnost može također doprinijeti, no njezino trajanje i intenzitet nisu poznati.",
+              "kind": "UNKNOWN",
+              "text": "Hvala što si naveo penjanje i planinarenje kao aktivnosti koje radiš. To uzimam kao tvoj izvještaj i kontekst, a ne kao izmjereni podatak. LoadIQ za ovo razdoblje nema dostupne podatke o aktivnostima, pa ne znamo kada su se aktivnosti dogodile, koliko su trajale ni koliko su bile zahtjevne. Zato ne pretpostavljam tvoje opterećenje.",
               "evidenceIds": [
-                "bodyBattery:trend",
-                "sleepDurationMin:trend",
-                "stressScore:trend",
-                "report:reported_workload",
-                "report:reported_late_sleep"
+                "report:reported_activity_context",
+                "activity:fact"
               ]
+            },
+            {
+              "kind": "HYPOTHESIS",
+              "text": "Zbog toga promjene u stresu i Body Battery mogu biti povezane s većim opterećenjem, ali to podaci ne mogu potvrditi. Stres je porastao, a Body Battery pao, pa bi nedostajuće aktivnosti mogle objasniti dio slike. Ti podaci ne isključuju ni druge čimbenike.",
+              "evidenceIds": ["stressScore:trend", "bodyBattery:trend", "cause"]
+            },
+            {
+              "kind": "UNKNOWN",
+              "text": "Trenutni oporavak ostaje nepoznat jer posljednji podaci nisu iz današnjeg dana, a nepostojanje zabilježenih aktivnosti ne znači da nisi bio aktivan. Ako možeš, opiši kada su se te aktivnosti dogodile i koliko su bile zahtjevne, kako bi se zaključci mogli bolje povezati.",
+              "evidenceIds": ["freshness", "activity:fact"]
             }
           ],
           "offeredActionIds": [
             "sleep_experiment",
-            "recovery_experiment",
-            "stress_experiment"
+            "stress_experiment",
+            "recovery_experiment"
           ],
           "followUps": [
             {
-              "id": "felt_wellbeing",
-              "status": "asked"
-            },
-            {
               "id": "routine",
-              "status": "answered"
+              "status": "asked"
             },
             {
               "id": "activity",
@@ -2438,90 +2477,80 @@
       }
     },
     {
-      "question": "Na temelju svega što smo dosad razgovarali, što smatraš glavnim problemom, što još ne znaš i koje bi mi jedno pitanje postavio kako bi bolje razumio moju situaciju?",
-      "answer": "Glavni obrazac koji vidim je kombinacija kraćeg sna, nižeg Body Battery i višeg stresa, što može upućivati na veći pritisak na oporavak, ali to ne dokazuje uzrok. Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu doprinijeti, no to su samo tvoje prijave, a ne izmjereni podaci. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nNe znam koliko dugo i koliko intenzivno je trajala neprijavljena aktivnost, kakav je tvoj stvarni raspored spavanja i kako se osjećaš ujutro i tijekom dana. Te informacije bi pomogle razlikovati utjecaj opterećenja od ostalih čimbenika.\n\nPokušaj tjedan dana zadržati dosljedno vrijeme buđenja i zaštititi dovoljno vremena u krevetu, pa usporedi trajanje sna i Body Battery s ovim razdobljem te zabilježi kako se osjećaš ujutro.\n\nKada radnim danom obično liježeš i ustaješ te razlikuje li se to vikendom?",
+      "question": "Sažmi što si zaključio tijekom cijelog razgovora. Što si naučio o meni, što još ne znaš i koje bi mi jedno važno pitanje postavio?",
+      "answer": "Iz razgovora znam da penjanje i planinarenje navodiš kao svoju aktivnost, ali nemam podatke o tome kada se odvijala ni koliko je bila zahtjevna. U drugoj polovici razdoblja imaš kraći san i nižu Body Battery uz viši stres. To bi djelomično moglo odražavati neevidentirano opterećenje, ali može imati i druge uzroke. HRV i puls u mirovanju se nisu bitno promijenili, a to opisuje samo te signale.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nNe znam koliki je tvoj stvarni trening, kakav je raspored spavanja i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa tvoj trenutni oporavak ostaje nepoznat.\n\nKada radnim danom obično liježeš i ustaješ te razlikuje li se to vikendom?",
       "period": {
-        "from": "2020-01-17",
-        "to": "2020-02-15",
+        "from": "2020-01-20",
+        "to": "2020-02-18",
         "days": 30
       },
+      "responseSource": "recorded_real",
       "rawSelection": {
         "narrative": [
           {
             "kind": "HYPOTHESIS",
-            "text": "Glavni obrazac koji vidim je kombinacija kraćeg sna, nižeg Body Battery i višeg stresa, što može upućivati na veći pritisak na oporavak, ali to ne dokazuje uzrok. Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu doprinijeti, no to su samo tvoje prijave, a ne izmjereni podaci. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+            "text": "Iz razgovora znam da penjanje i planinarenje navodiš kao svoju aktivnost, ali nemam podatke o tome kada se odvijala ni koliko je bila zahtjevna. U drugoj polovici razdoblja imaš kraći san i nižu Body Battery uz viši stres. To bi djelomično moglo odražavati neevidentirano opterećenje, ali može imati i druge uzroke. HRV i puls u mirovanju se nisu bitno promijenili, a to opisuje samo te signale.",
             "evidenceIds": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend",
-              "report:reported_workload",
-              "report:reported_late_sleep"
+              "report:reported_activity_context",
+              "hrv:trend"
             ]
           },
           {
             "kind": "UNKNOWN",
-            "text": "Ne znam koliko dugo i koliko intenzivno je trajala neprijavljena aktivnost, kakav je tvoj stvarni raspored spavanja i kako se osjećaš ujutro i tijekom dana. Te informacije bi pomogle razlikovati utjecaj opterećenja od ostalih čimbenika.",
-            "evidenceIds": [
-              "untracked",
-              "report:reported_untracked_activity",
-              "cause"
-            ]
-          },
-          {
-            "kind": "ACTION",
-            "text": "Pokušaj tjedan dana zadržati dosljedno vrijeme buđenja i zaštititi dovoljno vremena u krevetu, pa usporedi trajanje sna i Body Battery s ovim razdobljem te zabilježi kako se osjećaš ujutro.",
-            "evidenceIds": ["sleep_experiment", "sleepDurationMin:trend"]
+            "text": "Ne znam koliki je tvoj stvarni trening, kakav je raspored spavanja i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa tvoj trenutni oporavak ostaje nepoznat.",
+            "evidenceIds": ["activity:fact", "freshness", "cause"]
           }
         ],
         "observationIds": [
-          "bodyBattery:trend",
           "sleepDurationMin:trend",
+          "bodyBattery:trend",
           "stressScore:trend"
         ],
         "hypothesisIds": [],
-        "actionIds": ["sleep_experiment"],
+        "actionIds": [],
         "followUpId": "sleep_timing"
       },
       "reply": {
-        "headline": "Vaši nedavni signali u kontekstu",
+        "task": {
+          "intent": "conversation_summary",
+          "status": "complete",
+          "issues": [],
+          "requestedItems": 0,
+          "patterns": 1,
+          "actionItems": 0
+        },
+        "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
         "period": {
-          "from": "2020-01-17",
-          "to": "2020-02-15",
+          "from": "2020-01-20",
+          "to": "2020-02-18",
           "days": 30
         },
-        "today": "2020-02-15",
+        "today": "2020-02-18",
         "timezone": "Europe/Zagreb",
-        "confidence": "moderate",
+        "confidence": "limited",
         "latestWearableDate": "2020-02-15",
         "latestImportedDate": "2020-02-15",
         "blocks": [
           {
             "id": "conversation:0",
             "kind": "HYPOTHESIS",
-            "text": "Glavni obrazac koji vidim je kombinacija kraćeg sna, nižeg Body Battery i višeg stresa, što može upućivati na veći pritisak na oporavak, ali to ne dokazuje uzrok. Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu doprinijeti, no to su samo tvoje prijave, a ne izmjereni podaci. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+            "text": "Iz razgovora znam da penjanje i planinarenje navodiš kao svoju aktivnost, ali nemam podatke o tome kada se odvijala ni koliko je bila zahtjevna. U drugoj polovici razdoblja imaš kraći san i nižu Body Battery uz viši stres. To bi djelomično moglo odražavati neevidentirano opterećenje, ali može imati i druge uzroke. HRV i puls u mirovanju se nisu bitno promijenili, a to opisuje samo te signale.",
             "supports": [
-              "bodyBattery:trend",
               "sleepDurationMin:trend",
+              "bodyBattery:trend",
               "stressScore:trend",
-              "report:reported_workload",
-              "report:reported_late_sleep"
+              "report:reported_activity_context",
+              "hrv:trend"
             ]
           },
           {
             "id": "conversation:1",
             "kind": "UNKNOWN",
-            "text": "Ne znam koliko dugo i koliko intenzivno je trajala neprijavljena aktivnost, kakav je tvoj stvarni raspored spavanja i kako se osjećaš ujutro i tijekom dana. Te informacije bi pomogle razlikovati utjecaj opterećenja od ostalih čimbenika.",
-            "supports": [
-              "untracked",
-              "report:reported_untracked_activity",
-              "cause"
-            ]
-          },
-          {
-            "id": "conversation:2",
-            "kind": "ACTION",
-            "text": "Pokušaj tjedan dana zadržati dosljedno vrijeme buđenja i zaštititi dovoljno vremena u krevetu, pa usporedi trajanje sna i Body Battery s ovim razdobljem te zabilježi kako se osjećaš ujutro.",
-            "supports": ["sleep_experiment", "sleepDurationMin:trend"]
+            "text": "Ne znam koliki je tvoj stvarni trening, kakav je raspored spavanja i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa tvoj trenutni oporavak ostaje nepoznat.",
+            "supports": ["activity:fact", "freshness", "cause"]
           },
           {
             "id": "stressScore:fact",
@@ -2529,9 +2558,6 @@
             "signal": "stressScore",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2561,10 +2587,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress: mean 37.5 /100 across 30/30 days (2020-01-17–2020-02-15); latest 50 /100 on 2020-02-15."
+            "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
           },
           {
             "id": "stressScore:trend",
@@ -2572,9 +2598,6 @@
             "signal": "stressScore",
             "supports": ["stressScore:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2604,10 +2627,10 @@
               "2020-02-15"
             ],
             "values": [
-              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50,
-              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+              25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50,
+              50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
             ],
-            "text": "Physiological stress rose: mean 50 /100 (15 samples, 2020-02-01–2020-02-15) vs 25 (15 samples, 2020-01-17–2020-01-31); difference 25 /100. Not a significance test or cause."
+            "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
           },
           {
             "id": "bodyBattery:fact",
@@ -2615,9 +2638,6 @@
             "signal": "bodyBattery",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2647,10 +2667,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery: mean 60 /100 across 30/30 days (2020-01-17–2020-02-15); latest 45 /100 on 2020-02-15."
+            "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
           },
           {
             "id": "bodyBattery:trend",
@@ -2658,9 +2678,6 @@
             "signal": "bodyBattery",
             "supports": ["bodyBattery:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2690,10 +2707,10 @@
               "2020-02-15"
             ],
             "values": [
-              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45,
-              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+              75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45,
+              45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
             ],
-            "text": "Body Battery fell: mean 45 /100 (15 samples, 2020-02-01–2020-02-15) vs 75 (15 samples, 2020-01-17–2020-01-31); difference -30 /100. Not a significance test or cause."
+            "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
           },
           {
             "id": "sleepDurationMin:fact",
@@ -2701,9 +2718,6 @@
             "signal": "sleepDurationMin",
             "supports": [],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2733,11 +2747,11 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration: mean 405 min across 30/30 days (2020-01-17–2020-02-15); latest 360 min on 2020-02-15."
+            "text": "Sleep duration: mean 400 min across 27/30 days (2020-01-20–2020-02-18); latest 360 min on 2020-02-15."
           },
           {
             "id": "sleepDurationMin:trend",
@@ -2745,9 +2759,6 @@
             "signal": "sleepDurationMin",
             "supports": ["sleepDurationMin:fact"],
             "dates": [
-              "2020-01-17",
-              "2020-01-18",
-              "2020-01-19",
               "2020-01-20",
               "2020-01-21",
               "2020-01-22",
@@ -2777,17 +2788,161 @@
               "2020-02-15"
             ],
             "values": [
-              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450,
-              450, 450, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
-              360, 360, 360, 360
+              450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+              360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360,
+              360
             ],
-            "text": "Sleep duration fell: mean 360 min (15 samples, 2020-02-01–2020-02-15) vs 450 (15 samples, 2020-01-17–2020-01-31); difference -90 min. Not a significance test or cause."
+            "text": "Sleep duration fell: mean 360 min (12 samples, 2020-02-04–2020-02-18) vs 432 (15 samples, 2020-01-20–2020-02-03); difference -72 min. Not a significance test or cause."
           },
           {
-            "id": "sleep_experiment",
-            "kind": "ACTION",
-            "supports": ["sleepDurationMin:trend"],
-            "text": "Keep a consistent wake-up time and protect enough time in bed this week, rather than trying to change every routine. Compare next week’s sleep duration and score with this period, and note whether waking feels easier. Schedule timing is not measured here."
+            "id": "hrv:fact",
+            "kind": "FACT",
+            "signal": "hrv",
+            "supports": [],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+            ],
+            "text": "Stored daily HRV: mean 59.44 ms across 27/30 days (2020-01-20–2020-02-18); latest 59 ms on 2020-02-15."
+          },
+          {
+            "id": "hrv:trend",
+            "kind": "TREND",
+            "signal": "hrv",
+            "supports": ["hrv:fact"],
+            "dates": [
+              "2020-01-20",
+              "2020-01-21",
+              "2020-01-22",
+              "2020-01-23",
+              "2020-01-24",
+              "2020-01-25",
+              "2020-01-26",
+              "2020-01-27",
+              "2020-01-28",
+              "2020-01-29",
+              "2020-01-30",
+              "2020-01-31",
+              "2020-02-01",
+              "2020-02-02",
+              "2020-02-03",
+              "2020-02-04",
+              "2020-02-05",
+              "2020-02-06",
+              "2020-02-07",
+              "2020-02-08",
+              "2020-02-09",
+              "2020-02-10",
+              "2020-02-11",
+              "2020-02-12",
+              "2020-02-13",
+              "2020-02-14",
+              "2020-02-15"
+            ],
+            "values": [
+              60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 59, 59, 59,
+              59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59
+            ],
+            "text": "Stored daily HRV fell: mean 59 ms (12 samples, 2020-02-04–2020-02-18) vs 59.8 (15 samples, 2020-01-20–2020-02-03); difference -0.8 ms. Small descriptive HRV change; do not label it a meaningful recovery decline. Not a significance test or cause."
+          },
+          {
+            "id": "activity:fact",
+            "kind": "FACT",
+            "supports": [],
+            "dates": ["2020-01-20", "2020-02-18"],
+            "values": [0, 0],
+            "text": "Activity history is not available in LoadIQ for this period. The current Personal API health sync does not ingest activities. This is not evidence of inactivity."
+          },
+          {
+            "id": "freshness",
+            "kind": "UNKNOWN",
+            "supports": [],
+            "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+          },
+          {
+            "id": "hrv:stale",
+            "kind": "UNKNOWN",
+            "signal": "hrv",
+            "supports": [],
+            "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "restingHr:stale",
+            "kind": "UNKNOWN",
+            "signal": "restingHr",
+            "supports": [],
+            "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepDurationMin:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepDurationMin",
+            "supports": [],
+            "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "sleepScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "sleepScore",
+            "supports": [],
+            "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "stressScore:stale",
+            "kind": "UNKNOWN",
+            "signal": "stressScore",
+            "supports": [],
+            "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "bodyBattery:stale",
+            "kind": "UNKNOWN",
+            "signal": "bodyBattery",
+            "supports": [],
+            "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "steps:stale",
+            "kind": "UNKNOWN",
+            "signal": "steps",
+            "supports": [],
+            "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+          },
+          {
+            "id": "weightKg:stale",
+            "kind": "UNKNOWN",
+            "signal": "weightKg",
+            "supports": [],
+            "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
           },
           {
             "id": "partial_today",
@@ -2808,39 +2963,21 @@
             "text": "Existing UTC calendar buckets are preserved. Personal API HRV is the nightly average; legacy FIT HRV may use a fallback statistic. Body Battery is a stored daily value, not a daily mean. Row-level sources cannot establish exact per-field provenance, so mixed-source trends need caution."
           },
           {
-            "id": "report:reported_workload",
+            "id": "report:reported_activity_context",
             "kind": "UNKNOWN",
             "supports": [],
-            "text": "You report a heavier workload. This is self-reported context, not proof of the source of physiological stress."
-          },
-          {
-            "id": "report:reported_late_sleep",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report going to bed later. Timing is self-reported, not a measured sleep schedule."
-          },
-          {
-            "id": "report:reported_untracked_activity",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You report climbing or other unrecorded activity. Do not invent sessions, duration or intensity."
-          },
-          {
-            "id": "untracked",
-            "kind": "UNKNOWN",
-            "supports": [],
-            "text": "You reported activity that is not a measured workout here. Preserve any timing you supplied as a self-report; its duration, intensity and link to wearable changes have not been established."
+            "text": "You report climbing/hiking as activities you do. This is context only: dates, sessions, volume, intensity and Garmin coverage are unknown."
           }
         ],
         "followUp": "Kada radnim danom obično liježeš i ustaješ te razlikuje li se to vikendom?",
-        "answer": "Glavni obrazac koji vidim je kombinacija kraćeg sna, nižeg Body Battery i višeg stresa, što može upućivati na veći pritisak na oporavak, ali to ne dokazuje uzrok. Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu doprinijeti, no to su samo tvoje prijave, a ne izmjereni podaci. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.\n\nUsporedba: 2020-02-01–2020-02-15 prema 2020-01-17–2020-01-31. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nBody Battery: 45 prema 75 /100; promjena -30 /100 (15/15 mjerenja).\n\nTrajanje sna: 360 prema 450 min; promjena -90 min (15/15 mjerenja).\n\nNe znam koliko dugo i koliko intenzivno je trajala neprijavljena aktivnost, kakav je tvoj stvarni raspored spavanja i kako se osjećaš ujutro i tijekom dana. Te informacije bi pomogle razlikovati utjecaj opterećenja od ostalih čimbenika.\n\nPokušaj tjedan dana zadržati dosljedno vrijeme buđenja i zaštititi dovoljno vremena u krevetu, pa usporedi trajanje sna i Body Battery s ovim razdobljem te zabilježi kako se osjećaš ujutro.\n\nKada radnim danom obično liježeš i ustaješ te razlikuje li se to vikendom?",
+        "answer": "Iz razgovora znam da penjanje i planinarenje navodiš kao svoju aktivnost, ali nemam podatke o tome kada se odvijala ni koliko je bila zahtjevna. U drugoj polovici razdoblja imaš kraći san i nižu Body Battery uz viši stres. To bi djelomično moglo odražavati neevidentirano opterećenje, ali može imati i druge uzroke. HRV i puls u mirovanju se nisu bitno promijenili, a to opisuje samo te signale.\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\nTrajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\n\nBody Battery: 45 prema 69 /100; promjena -24 /100 (12/15 mjerenja).\n\nNe znam koliki je tvoj stvarni trening, kakav je raspored spavanja i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa tvoj trenutni oporavak ostaje nepoznat.\n\nKada radnim danom obično liježeš i ustaješ te razlikuje li se to vikendom?",
         "followUpId": "sleep_timing",
         "rendering": {
-          "modelParagraphs": 3,
-          "validatedParagraphs": 3,
-          "displayedParagraphs": 3,
+          "modelParagraphs": 2,
+          "validatedParagraphs": 2,
+          "displayedParagraphs": 2,
           "omittedParagraphs": 0,
-          "actionItems": 1,
+          "actionItems": 0,
           "requiredActionItems": 0
         },
         "answerStatus": "complete",
@@ -2848,8 +2985,8 @@
         "completion": "ai_assisted",
         "conversationContext": {
           "period": {
-            "from": "2020-01-17",
-            "to": "2020-02-15"
+            "from": "2020-01-20",
+            "to": "2020-02-18"
           },
           "topics": [
             "hrv",
@@ -2861,48 +2998,34 @@
             "steps",
             "weightKg"
           ],
-          "reportedCircumstances": [
-            "reported_work_stress",
-            "reported_untracked_activity",
-            "reported_climbing",
-            "reported_workload",
-            "reported_late_sleep"
-          ],
+          "reportedCircumstances": ["reported_activity_context"],
           "conclusions": [
             {
               "kind": "HYPOTHESIS",
-              "text": "Glavni obrazac koji vidim je kombinacija kraćeg sna, nižeg Body Battery i višeg stresa, što može upućivati na veći pritisak na oporavak, ali to ne dokazuje uzrok. Tvoje prijavljeno veće opterećenje, penjanje i kasniji odlasci na spavanje mogu doprinijeti, no to su samo tvoje prijave, a ne izmjereni podaci. Stabilan HRV i puls u mirovanju opisuju samo te signale i ne isključuju širi pad oporavka.",
+              "text": "Iz razgovora znam da penjanje i planinarenje navodiš kao svoju aktivnost, ali nemam podatke o tome kada se odvijala ni koliko je bila zahtjevna. U drugoj polovici razdoblja imaš kraći san i nižu Body Battery uz viši stres. To bi djelomično moglo odražavati neevidentirano opterećenje, ali može imati i druge uzroke. HRV i puls u mirovanju se nisu bitno promijenili, a to opisuje samo te signale.",
               "evidenceIds": [
-                "bodyBattery:trend",
                 "sleepDurationMin:trend",
+                "bodyBattery:trend",
                 "stressScore:trend",
-                "report:reported_workload",
-                "report:reported_late_sleep"
+                "report:reported_activity_context",
+                "hrv:trend"
               ]
             },
             {
               "kind": "UNKNOWN",
-              "text": "Ne znam koliko dugo i koliko intenzivno je trajala neprijavljena aktivnost, kakav je tvoj stvarni raspored spavanja i kako se osjećaš ujutro i tijekom dana. Te informacije bi pomogle razlikovati utjecaj opterećenja od ostalih čimbenika.",
-              "evidenceIds": [
-                "untracked",
-                "report:reported_untracked_activity",
-                "cause"
-              ]
+              "text": "Ne znam koliki je tvoj stvarni trening, kakav je raspored spavanja i ima li simptoma. Posljednji podaci nisu iz današnjeg dana, pa tvoj trenutni oporavak ostaje nepoznat.",
+              "evidenceIds": ["activity:fact", "freshness", "cause"]
             }
           ],
           "offeredActionIds": [
             "sleep_experiment",
-            "recovery_experiment",
-            "stress_experiment"
+            "stress_experiment",
+            "recovery_experiment"
           ],
           "followUps": [
             {
-              "id": "felt_wellbeing",
-              "status": "asked"
-            },
-            {
               "id": "routine",
-              "status": "answered"
+              "status": "asked"
             },
             {
               "id": "activity",
@@ -4223,6 +4346,447 @@
         ]
       },
       "mode": "ai_selected",
+      "ai": {
+        "configured": true,
+        "consented": true
+      },
+      "context": {
+        "states": [],
+        "recommendations": []
+      }
+    },
+    "incomplete_request": {
+      "task": {
+        "intent": "action_plan",
+        "status": "partial",
+        "issues": ["prioritized_actions_or_outcomes_missing"],
+        "requestedItems": 3,
+        "patterns": 2,
+        "actionItems": 2
+      },
+      "headline": "Povijesni podaci — današnje stanje nije utvrđeno",
+      "period": {
+        "from": "2020-01-20",
+        "to": "2020-02-18",
+        "days": 30
+      },
+      "today": "2020-02-18",
+      "timezone": "Europe/Zagreb",
+      "confidence": "limited",
+      "latestWearableDate": "2020-02-15",
+      "latestImportedDate": "2020-02-15",
+      "blocks": [
+        {
+          "id": "conversation:0",
+          "kind": "ACTION",
+          "text": "Prvo zaštiti dovoljno vremena za san uz stalnije vrijeme buđenja. Idućeg tjedna usporedi trajanje i ocjenu sna s ovim razdobljem te zabilježi budiš li se odmornije.",
+          "supports": ["sleep_experiment", "sleepDurationMin:trend"]
+        },
+        {
+          "id": "conversation:1",
+          "kind": "ACTION",
+          "text": "Zatim uvedi kratku mirnu pauzu nakon najzahtjevnijeg dijela dana. Idućeg tjedna usporedi fiziološki stres i osjećaj napetosti s ovim razdobljem.",
+          "supports": ["stress_experiment", "stressScore:trend"]
+        },
+        {
+          "id": "stressScore:fact",
+          "kind": "FACT",
+          "signal": "stressScore",
+          "supports": [],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50, 50,
+            50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+          ],
+          "text": "Physiological stress: mean 38.89 /100 across 27/30 days (2020-01-20–2020-02-18); latest 50 /100 on 2020-02-15."
+        },
+        {
+          "id": "stressScore:trend",
+          "kind": "TREND",
+          "signal": "stressScore",
+          "supports": ["stressScore:fact"],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 50, 50,
+            50, 50, 50, 50, 50, 50, 50, 50, 50, 50
+          ],
+          "text": "Physiological stress rose: mean 50 /100 (12 samples, 2020-02-04–2020-02-18) vs 30 (15 samples, 2020-01-20–2020-02-03); difference 20 /100. Not a significance test or cause."
+        },
+        {
+          "id": "bodyBattery:fact",
+          "kind": "FACT",
+          "signal": "bodyBattery",
+          "supports": [],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45, 45,
+            45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+          ],
+          "text": "Body Battery: mean 58.33 /100 across 27/30 days (2020-01-20–2020-02-18); latest 45 /100 on 2020-02-15."
+        },
+        {
+          "id": "bodyBattery:trend",
+          "kind": "TREND",
+          "signal": "bodyBattery",
+          "supports": ["bodyBattery:fact"],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 45, 45, 45, 45, 45,
+            45, 45, 45, 45, 45, 45, 45, 45, 45, 45
+          ],
+          "text": "Body Battery fell: mean 45 /100 (12 samples, 2020-02-04–2020-02-18) vs 69 (15 samples, 2020-01-20–2020-02-03); difference -24 /100. Not a significance test or cause."
+        },
+        {
+          "id": "sleepDurationMin:fact",
+          "kind": "FACT",
+          "signal": "sleepDurationMin",
+          "supports": [],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+            360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360
+          ],
+          "text": "Sleep duration: mean 400 min across 27/30 days (2020-01-20–2020-02-18); latest 360 min on 2020-02-15."
+        },
+        {
+          "id": "sleepDurationMin:trend",
+          "kind": "TREND",
+          "signal": "sleepDurationMin",
+          "supports": ["sleepDurationMin:fact"],
+          "dates": [
+            "2020-01-20",
+            "2020-01-21",
+            "2020-01-22",
+            "2020-01-23",
+            "2020-01-24",
+            "2020-01-25",
+            "2020-01-26",
+            "2020-01-27",
+            "2020-01-28",
+            "2020-01-29",
+            "2020-01-30",
+            "2020-01-31",
+            "2020-02-01",
+            "2020-02-02",
+            "2020-02-03",
+            "2020-02-04",
+            "2020-02-05",
+            "2020-02-06",
+            "2020-02-07",
+            "2020-02-08",
+            "2020-02-09",
+            "2020-02-10",
+            "2020-02-11",
+            "2020-02-12",
+            "2020-02-13",
+            "2020-02-14",
+            "2020-02-15"
+          ],
+          "values": [
+            450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 360,
+            360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360, 360
+          ],
+          "text": "Sleep duration fell: mean 360 min (12 samples, 2020-02-04–2020-02-18) vs 432 (15 samples, 2020-01-20–2020-02-03); difference -72 min. Not a significance test or cause."
+        },
+        {
+          "id": "sleep_experiment",
+          "kind": "ACTION",
+          "supports": ["sleepDurationMin:trend"],
+          "basis": "historical_evidence",
+          "evaluation": {
+            "days": 7,
+            "signals": ["sleepDurationMin", "sleepScore"],
+            "subjective": "morning restfulness"
+          },
+          "text": "Conditionally protect time in bed and a consistent wake-up time for the next seven days. Compare subsequent sleep duration/score with the stated historical period and record morning restfulness yourself. This does not assess today’s recovery; schedule timing is unknown."
+        },
+        {
+          "id": "stress_experiment",
+          "kind": "ACTION",
+          "supports": ["stressScore:trend"],
+          "basis": "historical_evidence",
+          "evaluation": {
+            "days": 7,
+            "signals": ["stressScore", "sleepDurationMin"],
+            "subjective": "felt tension"
+          },
+          "text": "Try a repeatable quiet break or screen-free evening wind-down over the next seven days. Keep other routines similar; compare subsequent physiological stress/sleep with the stated historical period and record felt tension. Physiological stress does not establish work stress as a cause."
+        },
+        {
+          "id": "recovery_experiment",
+          "kind": "ACTION",
+          "supports": ["bodyBattery:trend"],
+          "basis": "historical_evidence",
+          "evaluation": {
+            "days": 7,
+            "signals": ["bodyBattery", "restingHr", "hrv"],
+            "subjective": "energy and perceived effort"
+          },
+          "text": "Only if you feel under-recovered, choose an easier day instead of a demanding session. Over the next seven days record energy and perceived effort yourself, comparing subsequent Body Battery, HRV and resting HR with the historical period where available. No current readiness, session duration, training volume or causal effect is established."
+        },
+        {
+          "id": "freshness",
+          "kind": "UNKNOWN",
+          "supports": [],
+          "text": "Historical or missing wearable data: latest in this period is 2020-02-15; today is 2020-02-18. Current recovery is unknown."
+        },
+        {
+          "id": "hrv:stale",
+          "kind": "UNKNOWN",
+          "signal": "hrv",
+          "supports": [],
+          "text": "Stored daily HRV was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "restingHr:stale",
+          "kind": "UNKNOWN",
+          "signal": "restingHr",
+          "supports": [],
+          "text": "Resting HR was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "sleepDurationMin:stale",
+          "kind": "UNKNOWN",
+          "signal": "sleepDurationMin",
+          "supports": [],
+          "text": "Sleep duration was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "sleepScore:stale",
+          "kind": "UNKNOWN",
+          "signal": "sleepScore",
+          "supports": [],
+          "text": "Sleep score was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "stressScore:stale",
+          "kind": "UNKNOWN",
+          "signal": "stressScore",
+          "supports": [],
+          "text": "Physiological stress was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "bodyBattery:stale",
+          "kind": "UNKNOWN",
+          "signal": "bodyBattery",
+          "supports": [],
+          "text": "Body Battery was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "steps:stale",
+          "kind": "UNKNOWN",
+          "signal": "steps",
+          "supports": [],
+          "text": "Steps was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "weightKg:stale",
+          "kind": "UNKNOWN",
+          "signal": "weightKg",
+          "supports": [],
+          "text": "Weight was last recorded on 2020-02-15; it cannot establish today's state."
+        },
+        {
+          "id": "partial_today",
+          "kind": "UNKNOWN",
+          "supports": [],
+          "text": "Today may be incomplete. Missing measurements are not zero; historical averages do not describe today’s readiness."
+        },
+        {
+          "id": "cause",
+          "kind": "UNKNOWN",
+          "supports": [],
+          "text": "Wearable measurements cannot establish the cause of a change or diagnose illness. Unrecorded sessions are unknown; no workouts are inferred. Physiological stress is not a measurement of psychological stress."
+        },
+        {
+          "id": "source_semantics",
+          "kind": "UNKNOWN",
+          "supports": [],
+          "text": "Existing UTC calendar buckets are preserved. Personal API HRV is the nightly average; legacy FIT HRV may use a fallback statistic. Body Battery is a stored daily value, not a daily mean. Row-level sources cannot establish exact per-field provenance, so mixed-source trends need caution."
+        },
+        {
+          "id": "report:reported_activity_context",
+          "kind": "UNKNOWN",
+          "supports": [],
+          "text": "You report climbing/hiking as activities you do. This is context only: dates, sessions, volume, intensity and Garmin coverage are unknown."
+        }
+      ],
+      "followUp": null,
+      "answer": "AI odgovor je djelomičan: nedostaje dio traženog ili potkrijepljenog sadržaja.\n\nZa sljedećih sedam dana, po prioritetu:\n\nUsporedba: 2020-02-04–2020-02-18 prema 2020-01-20–2020-02-03. Prethodno cijelo razdoblje nema dovoljnu pokrivenost, pa uspoređujem jednake polovice traženog razdoblja.\n\n1. Prvo zaštiti dovoljno vremena za san uz stalnije vrijeme buđenja. Idućeg tjedna usporedi trajanje i ocjenu sna s ovim razdobljem te zabilježi budiš li se odmornije.\nRazlog: Trajanje sna: 360 prema 432 min; promjena -72 min (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi jutarnju odmorenost; usporedi dostupna nova mjerenja (Trajanje sna, Ocjena sna) s navedenim povijesnim razdobljem.\n\n2. Zatim uvedi kratku mirnu pauzu nakon najzahtjevnijeg dijela dana. Idućeg tjedna usporedi fiziološki stres i osjećaj napetosti s ovim razdobljem.\nRazlog: Fiziološki stres: 50 prema 30 /100; promjena +20 /100 (12/15 mjerenja).\nProvjera nakon 7 dana: sam zabilježi osjećaj napetosti; usporedi dostupna nova mjerenja (Fiziološki stres, Trajanje sna) s navedenim povijesnim razdobljem.\n\nOvo su povijesni podaci; današnji oporavak nije utvrđen.",
+      "followUpId": null,
+      "rendering": {
+        "modelParagraphs": 2,
+        "validatedParagraphs": 2,
+        "displayedParagraphs": 2,
+        "omittedParagraphs": 0,
+        "actionItems": 2,
+        "requiredActionItems": 3
+      },
+      "answerStatus": "partial",
+      "attribution": "Garmin device-sourced measurements where available. Interpretation by LoadIQ; manually entered weight and explicitly reported context are separate sources.",
+      "completion": "ai_partial",
+      "conversationContext": {
+        "period": {
+          "from": "2020-01-20",
+          "to": "2020-02-18"
+        },
+        "topics": [
+          "hrv",
+          "restingHr",
+          "sleepDurationMin",
+          "sleepScore",
+          "stressScore",
+          "bodyBattery",
+          "steps",
+          "weightKg"
+        ],
+        "reportedCircumstances": ["reported_activity_context"],
+        "conclusions": [],
+        "offeredActionIds": ["sleep_experiment", "stress_experiment"],
+        "followUps": []
+      },
+      "partialNotice": "AI odgovor je djelomičan: nedostaje dio traženog ili potkrijepljenog sadržaja.",
+      "mode": "ai_partial",
       "ai": {
         "configured": true,
         "consented": true

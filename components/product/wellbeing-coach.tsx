@@ -420,7 +420,9 @@ function Reply({
     (!reply.rendering || reply.rendering.displayedParagraphs > 0);
   const partial =
     hasAIText &&
-    (reply.answerStatus === "partial" || reply.completion === "ai_partial");
+    (reply.answerStatus === "partial" ||
+      reply.completion === "ai_partial" ||
+      reply.task?.status === "partial");
   return (
     <div className="mt-4 text-sm text-slate-700">
       <h3 className="font-semibold text-slate-900">{reply.headline}</h3>
@@ -449,6 +451,17 @@ function Reply({
             ? "Odgovor iz podataka — bez AI objašnjenja"
             : "Evidence-only answer — not AI-generated"}
       </p>
+      {!compact && reply.task?.status !== "complete" && reply.task && (
+        <p role="status" className="mt-2 text-amber-800">
+          {hr
+            ? reply.task.status === "unavailable"
+              ? "Za traženi odgovor nema dovoljno podataka."
+              : `Zahtjev je samo djelomično ispunjen.${reply.task.requestedItems ? ` Prikazano ${reply.task.intent === "action_plan" ? reply.task.actionItems : reply.task.patterns} od ${reply.task.requestedItems} traženih stavki.` : " Nedostaju traženi dijelovi odgovora."}`
+            : reply.task.status === "unavailable"
+              ? "Insufficient evidence for the requested answer."
+              : "The request is only partially fulfilled; required answer elements are missing."}
+        </p>
+      )}
       {!compact && (
         <p
           aria-label="Coach answer"
